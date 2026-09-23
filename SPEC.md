@@ -357,7 +357,13 @@ variation" result rather than NaN.
 
 **Demo cross-check**: `scripts/golden.py` (sklearn, statsmodels, krippendorff) computes
 every headline metric for the demo CSV; its output `src/demo/golden.json` is committed
-and a test asserts the app matches to 1e-6. Python is run by hand, never by `npm test`.
+and a test asserts the app matches to 1e-6. Python is run by hand, never by `npm test`,
+from a gitignored `scripts/.venv` (the script's docstring has the commands). golden.json
+holds α, Fleiss' κ, mean pairwise κ (unweighted) and overall percent agreement, each with
+its n, plus every pair's κ and each rater's leave-one-out α. golden.py applies Concord's
+rules around the libraries: Fleiss on complete items only, pairs under 10 shared items or
+without variation left out of the mean, α's n counting pairable values. Percent agreement
+has no reference library, so golden.py computes it from its definition.
 
 ## Demo dataset
 
@@ -372,6 +378,20 @@ and a test asserts the app matches to 1e-6. Python is run by hand, never by `npm
 - Overall α lands near 0.6: unreliable, but close enough that fixing one guideline would
   plausibly matter.
 - The landing page says the data is synthetic.
+
+The generator gives each message a true category and an ambiguity drawn once per message,
+so a hard sarcastic message trips most raters. Each rater has a sarcasm-blindness factor;
+the Neutral-leaning rater also answers Neutral on about a third of other messages. A
+missing rating is a missing row. The seed is chosen so nominal first-seen order reads
+`Positive, Neutral, Negative, Sarcastic`.
+
+The tests pin the story, with these readings of "about" and "clear": 190 to 210 items;
+exactly 5 raters and those four categories in that order; 6% to 10% of rater × item cells
+missing; the largest confusion's share at least 1.5× the second-largest; exactly one
+flagged rater, the one with the highest Neutral share; α in [0.55, 0.65]; the fixed
+mapping equals what detection proposes for the headers; no blocking error or warning.
+Tests read the CSV with Vite's `?raw` import, since the app's tsconfig has no Node types;
+the app fetches it from `/demo/support-messages.csv`.
 
 ## Build plan
 

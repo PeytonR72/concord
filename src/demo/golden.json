@@ -1,0 +1,113 @@
+{
+  "comment": "Written by scripts/golden.py from public/demo/support-messages.csv. Do not edit.",
+  "libraries": {
+    "scikit-learn": "1.9.1",
+    "statsmodels": "0.15.0",
+    "krippendorff": "0.8.2"
+  },
+  "alpha": {
+    "value": 0.5960805485421672,
+    "n": 913
+  },
+  "fleissKappa": {
+    "value": 0.5638532685164808,
+    "n": 127
+  },
+  "meanPairwiseKappa": {
+    "value": 0.5916979100737192,
+    "n": 10
+  },
+  "percentAgreement": {
+    "value": 0.7014999999999999,
+    "n": 200
+  },
+  "pairwiseKappa": [
+    {
+      "a": "ana",
+      "b": "ben",
+      "value": 0.6809665392420596,
+      "n": 169
+    },
+    {
+      "a": "ana",
+      "b": "chloe",
+      "value": 0.7273992990542033,
+      "n": 167
+    },
+    {
+      "a": "ana",
+      "b": "dana",
+      "value": 0.491498657682792,
+      "n": 161
+    },
+    {
+      "a": "ana",
+      "b": "eli",
+      "value": 0.6764290239267092,
+      "n": 166
+    },
+    {
+      "a": "ben",
+      "b": "chloe",
+      "value": 0.6473418881759854,
+      "n": 171
+    },
+    {
+      "a": "ben",
+      "b": "dana",
+      "value": 0.41399503722084363,
+      "n": 164
+    },
+    {
+      "a": "ben",
+      "b": "eli",
+      "value": 0.6487884563027497,
+      "n": 172
+    },
+    {
+      "a": "chloe",
+      "b": "dana",
+      "value": 0.467481662591687,
+      "n": 165
+    },
+    {
+      "a": "chloe",
+      "b": "eli",
+      "value": 0.7321842275970716,
+      "n": 170
+    },
+    {
+      "a": "dana",
+      "b": "eli",
+      "value": 0.43089430894308944,
+      "n": 162
+    }
+  ],
+  "leaveOneOutAlpha": [
+    {
+      "rater": "ana",
+      "value": 0.5573662004004247,
+      "n": 731
+    },
+    {
+      "rater": "ben",
+      "value": 0.5899380146738699,
+      "n": 729
+    },
+    {
+      "rater": "chloe",
+      "value": 0.5664480991794762,
+      "n": 727
+    },
+    {
+      "rater": "dana",
+      "value": 0.6862390337251784,
+      "n": 735
+    },
+    {
+      "rater": "eli",
+      "value": 0.5797015194783742,
+      "n": 728
+    }
+  ]
+}

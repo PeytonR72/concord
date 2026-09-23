@@ -1,0 +1,914 @@
+item,rater,label,text
+m001,ana,Positive,"The size exchange was painless, thank you."
+m001,ben,Positive,"The size exchange was painless, thank you."
+m001,chloe,Positive,"The size exchange was painless, thank you."
+m001,dana,Neutral,"The size exchange was painless, thank you."
+m001,eli,Positive,"The size exchange was painless, thank you."
+m002,ana,Negative,Nobody told me the store was closing early. Wasted trip.
+m002,ben,Sarcastic,Nobody told me the store was closing early. Wasted trip.
+m002,chloe,Negative,Nobody told me the store was closing early. Wasted trip.
+m002,dana,Neutral,Nobody told me the store was closing early. Wasted trip.
+m002,eli,Sarcastic,Nobody told me the store was closing early. Wasted trip.
+m003,ana,Negative,My complaint from last month was simply closed.
+m003,ben,Negative,My complaint from last month was simply closed.
+m003,chloe,Sarcastic,My complaint from last month was simply closed.
+m003,dana,Negative,My complaint from last month was simply closed.
+m003,eli,Negative,My complaint from last month was simply closed.
+m004,ana,Negative,I want a refund. The product is nothing like the photos.
+m004,ben,Sarcastic,I want a refund. The product is nothing like the photos.
+m004,chloe,Sarcastic,I want a refund. The product is nothing like the photos.
+m004,dana,Negative,I want a refund. The product is nothing like the photos.
+m004,eli,Sarcastic,I want a refund. The product is nothing like the photos.
+m005,ana,Negative,I was charged twice for the same order.
+m005,ben,Negative,I was charged twice for the same order.
+m005,chloe,Sarcastic,I was charged twice for the same order.
+m005,dana,Neutral,I was charged twice for the same order.
+m005,eli,Negative,I was charged twice for the same order.
+m006,ana,Positive,Best customer service I've had from any company this year.
+m006,ben,Positive,Best customer service I've had from any company this year.
+m006,eli,Positive,Best customer service I've had from any company this year.
+m007,ana,Sarcastic,Sync has been broken since the last update.
+m007,ben,Sarcastic,Sync has been broken since the last update.
+m007,chloe,Positive,Sync has been broken since the last update.
+m007,dana,Neutral,Sync has been broken since the last update.
+m007,eli,Negative,Sync has been broken since the last update.
+m008,ana,Sarcastic,"Oh good, the chatbot understood me perfectly. Said no one ever."
+m008,ben,Sarcastic,"Oh good, the chatbot understood me perfectly. Said no one ever."
+m008,chloe,Sarcastic,"Oh good, the chatbot understood me perfectly. Said no one ever."
+m008,dana,Sarcastic,"Oh good, the chatbot understood me perfectly. Said no one ever."
+m008,eli,Sarcastic,"Oh good, the chatbot understood me perfectly. Said no one ever."
+m009,ana,Positive,"Great product, great support, will buy again."
+m009,ben,Positive,"Great product, great support, will buy again."
+m009,chloe,Positive,"Great product, great support, will buy again."
+m009,dana,Neutral,"Great product, great support, will buy again."
+m009,eli,Positive,"Great product, great support, will buy again."
+m010,ana,Neutral,Is the blue version still in stock?
+m010,ben,Neutral,Is the blue version still in stock?
+m010,chloe,Neutral,Is the blue version still in stock?
+m010,dana,Neutral,Is the blue version still in stock?
+m011,ana,Positive,The tutorial videos are genuinely helpful.
+m011,ben,Positive,The tutorial videos are genuinely helpful.
+m011,chloe,Positive,The tutorial videos are genuinely helpful.
+m011,dana,Positive,The tutorial videos are genuinely helpful.
+m011,eli,Positive,The tutorial videos are genuinely helpful.
+m012,ana,Neutral,I need a VAT receipt for my purchase last week.
+m012,ben,Neutral,I need a VAT receipt for my purchase last week.
+m012,chloe,Neutral,I need a VAT receipt for my purchase last week.
+m012,dana,Neutral,I need a VAT receipt for my purchase last week.
+m012,eli,Neutral,I need a VAT receipt for my purchase last week.
+m013,ana,Negative,Your store staff were rude and unhelpful.
+m013,ben,Negative,Your store staff were rude and unhelpful.
+m013,chloe,Negative,Your store staff were rude and unhelpful.
+m013,dana,Negative,Your store staff were rude and unhelpful.
+m014,ana,Negative,This is the third faulty unit you've sent me.
+m014,ben,Negative,This is the third faulty unit you've sent me.
+m014,dana,Negative,This is the third faulty unit you've sent me.
+m014,eli,Negative,This is the third faulty unit you've sent me.
+m015,ana,Sarcastic,The headphones stopped charging after a week.
+m015,ben,Sarcastic,The headphones stopped charging after a week.
+m015,chloe,Negative,The headphones stopped charging after a week.
+m015,dana,Neutral,The headphones stopped charging after a week.
+m015,eli,Negative,The headphones stopped charging after a week.
+m016,ben,Negative,Such fast support. I only aged a year waiting.
+m016,chloe,Negative,Such fast support. I only aged a year waiting.
+m016,dana,Neutral,Such fast support. I only aged a year waiting.
+m016,eli,Negative,Such fast support. I only aged a year waiting.
+m017,ana,Negative,Nothing like a 2 a.m. maintenance window during my deadline.
+m017,ben,Negative,Nothing like a 2 a.m. maintenance window during my deadline.
+m017,chloe,Sarcastic,Nothing like a 2 a.m. maintenance window during my deadline.
+m017,dana,Neutral,Nothing like a 2 a.m. maintenance window during my deadline.
+m017,eli,Sarcastic,Nothing like a 2 a.m. maintenance window during my deadline.
+m018,ana,Neutral,Please send me a copy of my last invoice.
+m018,ben,Neutral,Please send me a copy of my last invoice.
+m018,chloe,Neutral,Please send me a copy of my last invoice.
+m018,eli,Neutral,Please send me a copy of my last invoice.
+m019,ana,Sarcastic,"Wow, only three weeks for a reply. Truly lightning fast."
+m019,ben,Negative,"Wow, only three weeks for a reply. Truly lightning fast."
+m019,chloe,Sarcastic,"Wow, only three weeks for a reply. Truly lightning fast."
+m019,dana,Sarcastic,"Wow, only three weeks for a reply. Truly lightning fast."
+m019,eli,Negative,"Wow, only three weeks for a reply. Truly lightning fast."
+m020,ana,Neutral,I'd like to switch to annual billing.
+m020,ben,Neutral,I'd like to switch to annual billing.
+m020,chloe,Neutral,I'd like to switch to annual billing.
+m020,dana,Neutral,I'd like to switch to annual billing.
+m020,eli,Sarcastic,I'd like to switch to annual billing.
+m021,ana,Positive,The warranty claim was approved in a day. Thank you!
+m021,ben,Positive,The warranty claim was approved in a day. Thank you!
+m021,chloe,Positive,The warranty claim was approved in a day. Thank you!
+m021,eli,Positive,The warranty claim was approved in a day. Thank you!
+m022,ana,Positive,"The gift wrapping was beautiful, my mum loved it."
+m022,ben,Positive,"The gift wrapping was beautiful, my mum loved it."
+m022,chloe,Positive,"The gift wrapping was beautiful, my mum loved it."
+m022,dana,Positive,"The gift wrapping was beautiful, my mum loved it."
+m022,eli,Positive,"The gift wrapping was beautiful, my mum loved it."
+m023,ben,Positive,Your help article on exporting data was perfectly clear.
+m023,chloe,Positive,Your help article on exporting data was perfectly clear.
+m023,dana,Positive,Your help article on exporting data was perfectly clear.
+m023,eli,Positive,Your help article on exporting data was perfectly clear.
+m024,ana,Sarcastic,"Oh great, another update that breaks everything. Love it."
+m024,ben,Neutral,"Oh great, another update that breaks everything. Love it."
+m024,chloe,Sarcastic,"Oh great, another update that breaks everything. Love it."
+m024,dana,Neutral,"Oh great, another update that breaks everything. Love it."
+m024,eli,Negative,"Oh great, another update that breaks everything. Love it."
+m025,ana,Negative,The chair arrived with two missing screws and no instructions.
+m025,ben,Negative,The chair arrived with two missing screws and no instructions.
+m025,chloe,Negative,The chair arrived with two missing screws and no instructions.
+m025,dana,Negative,The chair arrived with two missing screws and no instructions.
+m025,eli,Negative,The chair arrived with two missing screws and no instructions.
+m026,ana,Positive,The installer was on time and tidy. Five stars.
+m026,ben,Positive,The installer was on time and tidy. Five stars.
+m026,chloe,Positive,The installer was on time and tidy. Five stars.
+m026,dana,Positive,The installer was on time and tidy. Five stars.
+m026,eli,Positive,The installer was on time and tidy. Five stars.
+m027,ana,Sarcastic,"Fantastic, the replacement is broken too. Consistency!"
+m027,ben,Sarcastic,"Fantastic, the replacement is broken too. Consistency!"
+m027,chloe,Sarcastic,"Fantastic, the replacement is broken too. Consistency!"
+m027,dana,Negative,"Fantastic, the replacement is broken too. Consistency!"
+m027,eli,Negative,"Fantastic, the replacement is broken too. Consistency!"
+m028,ana,Negative,Five stars for the box. Shame about what was inside.
+m028,ben,Negative,Five stars for the box. Shame about what was inside.
+m028,chloe,Sarcastic,Five stars for the box. Shame about what was inside.
+m028,dana,Neutral,Five stars for the box. Shame about what was inside.
+m028,eli,Negative,Five stars for the box. Shame about what was inside.
+m029,ana,Negative,The new pricing is a rip-off.
+m029,ben,Sarcastic,The new pricing is a rip-off.
+m029,chloe,Negative,The new pricing is a rip-off.
+m029,dana,Negative,The new pricing is a rip-off.
+m029,eli,Neutral,The new pricing is a rip-off.
+m030,ana,Sarcastic,"Oh sure, cancelling was super easy. Only took six emails."
+m030,ben,Sarcastic,"Oh sure, cancelling was super easy. Only took six emails."
+m030,chloe,Sarcastic,"Oh sure, cancelling was super easy. Only took six emails."
+m030,dana,Sarcastic,"Oh sure, cancelling was super easy. Only took six emails."
+m030,eli,Sarcastic,"Oh sure, cancelling was super easy. Only took six emails."
+m031,ana,Neutral,Can I pick up my order in store instead?
+m031,ben,Neutral,Can I pick up my order in store instead?
+m031,chloe,Neutral,Can I pick up my order in store instead?
+m031,dana,Neutral,Can I pick up my order in store instead?
+m031,eli,Neutral,Can I pick up my order in store instead?
+m032,ana,Negative,The zip broke the first time I wore the jacket.
+m032,ben,Negative,The zip broke the first time I wore the jacket.
+m032,dana,Negative,The zip broke the first time I wore the jacket.
+m032,eli,Sarcastic,The zip broke the first time I wore the jacket.
+m033,ana,Sarcastic,Glad to see the outage page is up. Shame the service isn't.
+m033,chloe,Sarcastic,Glad to see the outage page is up. Shame the service isn't.
+m033,dana,Sarcastic,Glad to see the outage page is up. Shame the service isn't.
+m033,eli,Sarcastic,Glad to see the outage page is up. Shame the service isn't.
+m034,ana,Positive,Great to see the price stayed the same after the upgrade.
+m034,ben,Positive,Great to see the price stayed the same after the upgrade.
+m034,chloe,Positive,Great to see the price stayed the same after the upgrade.
+m034,dana,Positive,Great to see the price stayed the same after the upgrade.
+m034,eli,Positive,Great to see the price stayed the same after the upgrade.
+m035,ana,Positive,"Very smooth checkout, well done."
+m035,ben,Positive,"Very smooth checkout, well done."
+m035,chloe,Positive,"Very smooth checkout, well done."
+m035,dana,Neutral,"Very smooth checkout, well done."
+m035,eli,Positive,"Very smooth checkout, well done."
+m036,ana,Positive,Everything works now. Thanks for your patience with me.
+m036,ben,Positive,Everything works now. Thanks for your patience with me.
+m036,eli,Positive,Everything works now. Thanks for your patience with me.
+m037,ben,Neutral,How do I turn off email notifications?
+m037,chloe,Neutral,How do I turn off email notifications?
+m037,dana,Neutral,How do I turn off email notifications?
+m037,eli,Neutral,How do I turn off email notifications?
+m038,ana,Positive,The replacement part fit perfectly. Much appreciated.
+m038,ben,Positive,The replacement part fit perfectly. Much appreciated.
+m038,chloe,Positive,The replacement part fit perfectly. Much appreciated.
+m038,dana,Neutral,The replacement part fit perfectly. Much appreciated.
+m038,eli,Positive,The replacement part fit perfectly. Much appreciated.
+m039,ana,Neutral,Do you offer installation with the washing machine?
+m039,ben,Neutral,Do you offer installation with the washing machine?
+m039,chloe,Neutral,Do you offer installation with the washing machine?
+m039,dana,Neutral,Do you offer installation with the washing machine?
+m039,eli,Neutral,Do you offer installation with the washing machine?
+m040,ana,Positive,The app's new search finds everything instantly. Love it.
+m040,ben,Positive,The app's new search finds everything instantly. Love it.
+m040,chloe,Positive,The app's new search finds everything instantly. Love it.
+m040,dana,Positive,The app's new search finds everything instantly. Love it.
+m040,eli,Positive,The app's new search finds everything instantly. Love it.
+m041,ben,Positive,Thank you for honouring the old price.
+m041,chloe,Positive,Thank you for honouring the old price.
+m041,dana,Neutral,Thank you for honouring the old price.
+m041,eli,Positive,Thank you for honouring the old price.
+m042,ben,Negative,The app charged me in dollars instead of pounds.
+m042,chloe,Negative,The app charged me in dollars instead of pounds.
+m042,dana,Neutral,The app charged me in dollars instead of pounds.
+m042,eli,Negative,The app charged me in dollars instead of pounds.
+m043,ana,Sarcastic,"Oh wonderful, another password rule. My favourite."
+m043,ben,Neutral,"Oh wonderful, another password rule. My favourite."
+m043,chloe,Sarcastic,"Oh wonderful, another password rule. My favourite."
+m043,dana,Neutral,"Oh wonderful, another password rule. My favourite."
+m043,eli,Sarcastic,"Oh wonderful, another password rule. My favourite."
+m044,ana,Neutral,"Quick, polite and effective. Couldn't ask for more."
+m044,ben,Positive,"Quick, polite and effective. Couldn't ask for more."
+m044,dana,Positive,"Quick, polite and effective. Couldn't ask for more."
+m045,ana,Negative,The subscription renewed without any warning.
+m045,ben,Sarcastic,The subscription renewed without any warning.
+m045,chloe,Sarcastic,The subscription renewed without any warning.
+m045,dana,Negative,The subscription renewed without any warning.
+m045,eli,Negative,The subscription renewed without any warning.
+m046,ana,Positive,The engineer explained everything clearly. Really helpful.
+m046,ben,Positive,The engineer explained everything clearly. Really helpful.
+m046,chloe,Positive,The engineer explained everything clearly. Really helpful.
+m046,dana,Positive,The engineer explained everything clearly. Really helpful.
+m047,ana,Neutral,Please remove my card details from the account.
+m047,chloe,Neutral,Please remove my card details from the account.
+m047,dana,Neutral,Please remove my card details from the account.
+m047,eli,Sarcastic,Please remove my card details from the account.
+m048,ana,Neutral,How many devices can I use with one licence?
+m048,ben,Neutral,How many devices can I use with one licence?
+m048,chloe,Neutral,How many devices can I use with one licence?
+m048,eli,Neutral,How many devices can I use with one licence?
+m049,ana,Sarcastic,"Thanks for the ""quick"" fix. It only took three visits."
+m049,ben,Sarcastic,"Thanks for the ""quick"" fix. It only took three visits."
+m049,chloe,Sarcastic,"Thanks for the ""quick"" fix. It only took three visits."
+m049,dana,Sarcastic,"Thanks for the ""quick"" fix. It only took three visits."
+m049,eli,Sarcastic,"Thanks for the ""quick"" fix. It only took three visits."
+m050,ana,Sarcastic,Amazing how the price goes up every time I look away.
+m050,ben,Sarcastic,Amazing how the price goes up every time I look away.
+m050,chloe,Sarcastic,Amazing how the price goes up every time I look away.
+m050,dana,Neutral,Amazing how the price goes up every time I look away.
+m050,eli,Negative,Amazing how the price goes up every time I look away.
+m051,ana,Negative,The battery drains in under three hours.
+m051,ben,Negative,The battery drains in under three hours.
+m051,chloe,Negative,The battery drains in under three hours.
+m051,dana,Negative,The battery drains in under three hours.
+m051,eli,Negative,The battery drains in under three hours.
+m052,ana,Sarcastic,Brilliant idea to hide the cancel button. Very user friendly.
+m052,chloe,Sarcastic,Brilliant idea to hide the cancel button. Very user friendly.
+m052,dana,Sarcastic,Brilliant idea to hide the cancel button. Very user friendly.
+m052,eli,Sarcastic,Brilliant idea to hide the cancel button. Very user friendly.
+m053,ana,Positive,"Thanks so much, the refund came through this morning."
+m053,ben,Positive,"Thanks so much, the refund came through this morning."
+m053,chloe,Positive,"Thanks so much, the refund came through this morning."
+m053,dana,Neutral,"Thanks so much, the refund came through this morning."
+m053,eli,Positive,"Thanks so much, the refund came through this morning."
+m054,ana,Neutral,Is the app available on tablets?
+m054,ben,Neutral,Is the app available on tablets?
+m054,chloe,Neutral,Is the app available on tablets?
+m054,eli,Neutral,Is the app available on tablets?
+m055,ana,Neutral,What time does support open on Saturdays?
+m055,ben,Neutral,What time does support open on Saturdays?
+m055,dana,Neutral,What time does support open on Saturdays?
+m055,eli,Neutral,What time does support open on Saturdays?
+m056,ana,Neutral,Where can I find the user manual?
+m056,ben,Sarcastic,Where can I find the user manual?
+m056,chloe,Neutral,Where can I find the user manual?
+m056,eli,Neutral,Where can I find the user manual?
+m057,ana,Neutral,Can two people share one account?
+m057,ben,Positive,Can two people share one account?
+m057,chloe,Neutral,Can two people share one account?
+m057,dana,Neutral,Can two people share one account?
+m057,eli,Neutral,Can two people share one account?
+m058,ana,Positive,Setup took two minutes. Really impressed.
+m058,ben,Positive,Setup took two minutes. Really impressed.
+m058,chloe,Positive,Setup took two minutes. Really impressed.
+m058,dana,Positive,Setup took two minutes. Really impressed.
+m058,eli,Positive,Setup took two minutes. Really impressed.
+m059,ana,Negative,The paint started peeling within a month.
+m059,ben,Sarcastic,The paint started peeling within a month.
+m059,chloe,Negative,The paint started peeling within a month.
+m059,dana,Negative,The paint started peeling within a month.
+m059,eli,Sarcastic,The paint started peeling within a month.
+m060,ana,Sarcastic,"Top marks for the packaging. The glass inside, not so much."
+m060,ben,Negative,"Top marks for the packaging. The glass inside, not so much."
+m060,dana,Sarcastic,"Top marks for the packaging. The glass inside, not so much."
+m060,eli,Sarcastic,"Top marks for the packaging. The glass inside, not so much."
+m061,ben,Positive,Delighted with the quality of the jacket.
+m061,chloe,Positive,Delighted with the quality of the jacket.
+m061,dana,Positive,Delighted with the quality of the jacket.
+m061,eli,Positive,Delighted with the quality of the jacket.
+m062,ana,Positive,Really appreciate the personal note in the box.
+m062,ben,Positive,Really appreciate the personal note in the box.
+m062,chloe,Positive,Really appreciate the personal note in the box.
+m062,dana,Sarcastic,Really appreciate the personal note in the box.
+m062,eli,Positive,Really appreciate the personal note in the box.
+m063,ana,Neutral,What are your returns hours at the London store?
+m063,ben,Neutral,What are your returns hours at the London store?
+m063,chloe,Neutral,What are your returns hours at the London store?
+m063,dana,Neutral,What are your returns hours at the London store?
+m063,eli,Neutral,What are your returns hours at the London store?
+m064,ben,Neutral,I'd like to know the status of ticket 5520.
+m064,chloe,Neutral,I'd like to know the status of ticket 5520.
+m064,dana,Neutral,I'd like to know the status of ticket 5520.
+m064,eli,Neutral,I'd like to know the status of ticket 5520.
+m065,ana,Neutral,How do I export my data to CSV?
+m065,ben,Neutral,How do I export my data to CSV?
+m065,chloe,Neutral,How do I export my data to CSV?
+m065,dana,Neutral,How do I export my data to CSV?
+m065,eli,Neutral,How do I export my data to CSV?
+m066,ana,Positive,"Thank you, Sam, for staying on the line until it worked."
+m066,chloe,Sarcastic,"Thank you, Sam, for staying on the line until it worked."
+m066,eli,Positive,"Thank you, Sam, for staying on the line until it worked."
+m067,ana,Positive,You went above and beyond sorting out my account. Thank you.
+m067,ben,Positive,You went above and beyond sorting out my account. Thank you.
+m067,chloe,Positive,You went above and beyond sorting out my account. Thank you.
+m067,dana,Positive,You went above and beyond sorting out my account. Thank you.
+m067,eli,Positive,You went above and beyond sorting out my account. Thank you.
+m068,ana,Negative,I've been overcharged for three months in a row.
+m068,ben,Negative,I've been overcharged for three months in a row.
+m068,chloe,Negative,I've been overcharged for three months in a row.
+m068,dana,Neutral,I've been overcharged for three months in a row.
+m069,ana,Negative,Half my order was missing from the box.
+m069,ben,Sarcastic,Half my order was missing from the box.
+m069,chloe,Negative,Half my order was missing from the box.
+m069,dana,Neutral,Half my order was missing from the box.
+m069,eli,Sarcastic,Half my order was missing from the box.
+m070,ana,Sarcastic,Such a treat to explain my problem to a fifth agent.
+m070,ben,Sarcastic,Such a treat to explain my problem to a fifth agent.
+m070,chloe,Sarcastic,Such a treat to explain my problem to a fifth agent.
+m070,dana,Sarcastic,Such a treat to explain my problem to a fifth agent.
+m070,eli,Sarcastic,Such a treat to explain my problem to a fifth agent.
+m071,ana,Negative,Customer service promised a callback that never came.
+m071,ben,Negative,Customer service promised a callback that never came.
+m071,chloe,Negative,Customer service promised a callback that never came.
+m071,dana,Negative,Customer service promised a callback that never came.
+m071,eli,Sarcastic,Customer service promised a callback that never came.
+m072,ana,Negative,"What a surprise, the courier ""tried to deliver"" while I was home."
+m072,ben,Negative,"What a surprise, the courier ""tried to deliver"" while I was home."
+m072,chloe,Sarcastic,"What a surprise, the courier ""tried to deliver"" while I was home."
+m072,dana,Negative,"What a surprise, the courier ""tried to deliver"" while I was home."
+m073,ana,Positive,My issue was escalated and fixed within the hour. Brilliant.
+m073,ben,Positive,My issue was escalated and fixed within the hour. Brilliant.
+m073,chloe,Positive,My issue was escalated and fixed within the hour. Brilliant.
+m073,eli,Positive,My issue was escalated and fixed within the hour. Brilliant.
+m074,ana,Neutral,Can I schedule a delivery for next Tuesday?
+m074,ben,Neutral,Can I schedule a delivery for next Tuesday?
+m074,chloe,Neutral,Can I schedule a delivery for next Tuesday?
+m074,dana,Positive,Can I schedule a delivery for next Tuesday?
+m074,eli,Neutral,Can I schedule a delivery for next Tuesday?
+m075,ana,Positive,Thanks for the quick reply over the weekend!
+m075,ben,Positive,Thanks for the quick reply over the weekend!
+m075,chloe,Positive,Thanks for the quick reply over the weekend!
+m075,dana,Positive,Thanks for the quick reply over the weekend!
+m075,eli,Positive,Thanks for the quick reply over the weekend!
+m076,ana,Negative,Your courier left my parcel in the rain.
+m076,ben,Negative,Your courier left my parcel in the rain.
+m076,chloe,Negative,Your courier left my parcel in the rain.
+m076,dana,Sarcastic,Your courier left my parcel in the rain.
+m076,eli,Negative,Your courier left my parcel in the rain.
+m077,ana,Negative,The food was cold and the order was wrong.
+m077,ben,Negative,The food was cold and the order was wrong.
+m077,chloe,Negative,The food was cold and the order was wrong.
+m077,dana,Neutral,The food was cold and the order was wrong.
+m077,eli,Negative,The food was cold and the order was wrong.
+m078,ana,Sarcastic,"Yes, please send me a fourth email about the same sale."
+m078,ben,Negative,"Yes, please send me a fourth email about the same sale."
+m078,chloe,Sarcastic,"Yes, please send me a fourth email about the same sale."
+m078,dana,Negative,"Yes, please send me a fourth email about the same sale."
+m078,eli,Sarcastic,"Yes, please send me a fourth email about the same sale."
+m079,ana,Negative,The mattress smells of chemicals and won't air out.
+m079,ben,Negative,The mattress smells of chemicals and won't air out.
+m079,chloe,Negative,The mattress smells of chemicals and won't air out.
+m079,dana,Negative,The mattress smells of chemicals and won't air out.
+m079,eli,Negative,The mattress smells of chemicals and won't air out.
+m080,ana,Neutral,"I'll be away next week, so please hold the delivery."
+m080,ben,Neutral,"I'll be away next week, so please hold the delivery."
+m080,chloe,Neutral,"I'll be away next week, so please hold the delivery."
+m080,dana,Neutral,"I'll be away next week, so please hold the delivery."
+m080,eli,Neutral,"I'll be away next week, so please hold the delivery."
+m081,ana,Negative,You changed the layout and now I can't find anything.
+m081,ben,Negative,You changed the layout and now I can't find anything.
+m081,chloe,Sarcastic,You changed the layout and now I can't find anything.
+m081,eli,Sarcastic,You changed the layout and now I can't find anything.
+m082,ana,Negative,The screen has a dead pixel right in the centre.
+m082,ben,Negative,The screen has a dead pixel right in the centre.
+m082,chloe,Negative,The screen has a dead pixel right in the centre.
+m082,dana,Neutral,The screen has a dead pixel right in the centre.
+m082,eli,Negative,The screen has a dead pixel right in the centre.
+m083,ana,Negative,The instructions are wrong and the part doesn't fit.
+m083,dana,Negative,The instructions are wrong and the part doesn't fit.
+m083,eli,Sarcastic,The instructions are wrong and the part doesn't fit.
+m084,ana,Negative,I've explained my problem to four different agents now.
+m084,ben,Negative,I've explained my problem to four different agents now.
+m084,chloe,Negative,I've explained my problem to four different agents now.
+m084,dana,Negative,I've explained my problem to four different agents now.
+m084,eli,Negative,I've explained my problem to four different agents now.
+m085,ana,Negative,Of course the sale ended the minute I checked out.
+m085,ben,Negative,Of course the sale ended the minute I checked out.
+m085,dana,Negative,Of course the sale ended the minute I checked out.
+m085,eli,Negative,Of course the sale ended the minute I checked out.
+m086,ana,Positive,Loving the new loyalty rewards.
+m086,ben,Positive,Loving the new loyalty rewards.
+m086,chloe,Negative,Loving the new loyalty rewards.
+m086,dana,Positive,Loving the new loyalty rewards.
+m086,eli,Positive,Loving the new loyalty rewards.
+m087,ana,Sarcastic,So glad I paid extra for next-day delivery that came next week.
+m087,ben,Sarcastic,So glad I paid extra for next-day delivery that came next week.
+m087,chloe,Negative,So glad I paid extra for next-day delivery that came next week.
+m087,dana,Negative,So glad I paid extra for next-day delivery that came next week.
+m087,eli,Negative,So glad I paid extra for next-day delivery that came next week.
+m088,ana,Sarcastic,The printer jams on every other page.
+m088,ben,Negative,The printer jams on every other page.
+m088,chloe,Negative,The printer jams on every other page.
+m088,dana,Sarcastic,The printer jams on every other page.
+m088,eli,Sarcastic,The printer jams on every other page.
+m089,ana,Negative,Cancelling my account shouldn't take six emails.
+m089,ben,Negative,Cancelling my account shouldn't take six emails.
+m089,chloe,Negative,Cancelling my account shouldn't take six emails.
+m089,dana,Neutral,Cancelling my account shouldn't take six emails.
+m089,eli,Negative,Cancelling my account shouldn't take six emails.
+m090,ana,Neutral,Is there an API for the reporting feature?
+m090,ben,Neutral,Is there an API for the reporting feature?
+m090,chloe,Neutral,Is there an API for the reporting feature?
+m090,dana,Neutral,Is there an API for the reporting feature?
+m090,eli,Neutral,Is there an API for the reporting feature?
+m091,ana,Sarcastic,"Love that the ""waterproof"" jacket soaked me through."
+m091,ben,Sarcastic,"Love that the ""waterproof"" jacket soaked me through."
+m091,chloe,Sarcastic,"Love that the ""waterproof"" jacket soaked me through."
+m091,dana,Sarcastic,"Love that the ""waterproof"" jacket soaked me through."
+m091,eli,Sarcastic,"Love that the ""waterproof"" jacket soaked me through."
+m092,ana,Positive,Thanks for refunding the duplicate charge without any fuss.
+m092,ben,Positive,Thanks for refunding the duplicate charge without any fuss.
+m092,chloe,Positive,Thanks for refunding the duplicate charge without any fuss.
+m092,dana,Neutral,Thanks for refunding the duplicate charge without any fuss.
+m092,eli,Positive,Thanks for refunding the duplicate charge without any fuss.
+m093,ana,Neutral,Is the sale price applied automatically at checkout?
+m093,ben,Neutral,Is the sale price applied automatically at checkout?
+m093,chloe,Neutral,Is the sale price applied automatically at checkout?
+m093,dana,Neutral,Is the sale price applied automatically at checkout?
+m093,eli,Neutral,Is the sale price applied automatically at checkout?
+m094,ana,Neutral,The noise from the fridge keeps me up at night.
+m094,ben,Negative,The noise from the fridge keeps me up at night.
+m094,chloe,Negative,The noise from the fridge keeps me up at night.
+m094,eli,Negative,The noise from the fridge keeps me up at night.
+m095,ana,Sarcastic,"Great to know my complaint is ""important to you"". Very convincing."
+m095,ben,Negative,"Great to know my complaint is ""important to you"". Very convincing."
+m095,chloe,Sarcastic,"Great to know my complaint is ""important to you"". Very convincing."
+m095,dana,Neutral,"Great to know my complaint is ""important to you"". Very convincing."
+m095,eli,Sarcastic,"Great to know my complaint is ""important to you"". Very convincing."
+m096,ben,Positive,So glad you brought back the classic layout.
+m096,chloe,Positive,So glad you brought back the classic layout.
+m096,dana,Positive,So glad you brought back the classic layout.
+m096,eli,Positive,So glad you brought back the classic layout.
+m097,ana,Negative,Loving the surprise fees at checkout. Keeps life exciting.
+m097,ben,Negative,Loving the surprise fees at checkout. Keeps life exciting.
+m097,chloe,Sarcastic,Loving the surprise fees at checkout. Keeps life exciting.
+m097,dana,Negative,Loving the surprise fees at checkout. Keeps life exciting.
+m097,eli,Sarcastic,Loving the surprise fees at checkout. Keeps life exciting.
+m098,ana,Sarcastic,"Terrible experience, I won't be ordering again."
+m098,ben,Negative,"Terrible experience, I won't be ordering again."
+m098,chloe,Negative,"Terrible experience, I won't be ordering again."
+m098,dana,Neutral,"Terrible experience, I won't be ordering again."
+m098,eli,Negative,"Terrible experience, I won't be ordering again."
+m099,ana,Positive,The new update fixed the sync issue. Great work!
+m099,ben,Positive,The new update fixed the sync issue. Great work!
+m099,chloe,Positive,The new update fixed the sync issue. Great work!
+m099,dana,Neutral,The new update fixed the sync issue. Great work!
+m099,eli,Positive,The new update fixed the sync issue. Great work!
+m100,ben,Negative,"Excellent, the fix made it worse. Well done, team."
+m100,chloe,Sarcastic,"Excellent, the fix made it worse. Well done, team."
+m100,dana,Sarcastic,"Excellent, the fix made it worse. Well done, team."
+m100,eli,Sarcastic,"Excellent, the fix made it worse. Well done, team."
+m101,ana,Neutral,Can I add a second address for deliveries?
+m101,ben,Neutral,Can I add a second address for deliveries?
+m101,chloe,Neutral,Can I add a second address for deliveries?
+m101,dana,Neutral,Can I add a second address for deliveries?
+m101,eli,Neutral,Can I add a second address for deliveries?
+m102,ana,Positive,"Love the redesigned app, it's so much faster now."
+m102,ben,Positive,"Love the redesigned app, it's so much faster now."
+m102,chloe,Positive,"Love the redesigned app, it's so much faster now."
+m102,dana,Positive,"Love the redesigned app, it's so much faster now."
+m102,eli,Positive,"Love the redesigned app, it's so much faster now."
+m103,ana,Sarcastic,"I'm thrilled my ""new"" phone came with someone else's photos."
+m103,ben,Negative,"I'm thrilled my ""new"" phone came with someone else's photos."
+m103,chloe,Sarcastic,"I'm thrilled my ""new"" phone came with someone else's photos."
+m103,dana,Negative,"I'm thrilled my ""new"" phone came with someone else's photos."
+m103,eli,Negative,"I'm thrilled my ""new"" phone came with someone else's photos."
+m104,ana,Negative,Nothing says quality like a handle that falls off on day one.
+m104,ben,Sarcastic,Nothing says quality like a handle that falls off on day one.
+m104,chloe,Sarcastic,Nothing says quality like a handle that falls off on day one.
+m104,dana,Neutral,Nothing says quality like a handle that falls off on day one.
+m104,eli,Negative,Nothing says quality like a handle that falls off on day one.
+m105,ana,Neutral,Do gift cards expire?
+m105,ben,Neutral,Do gift cards expire?
+m105,chloe,Neutral,Do gift cards expire?
+m105,dana,Neutral,Do gift cards expire?
+m105,eli,Neutral,Do gift cards expire?
+m106,ben,Negative,The package was clearly opened before it reached me.
+m106,chloe,Negative,The package was clearly opened before it reached me.
+m106,dana,Negative,The package was clearly opened before it reached me.
+m106,eli,Negative,The package was clearly opened before it reached me.
+m107,ana,Negative,I cancelled last month and you still took payment.
+m107,ben,Sarcastic,I cancelled last month and you still took payment.
+m107,chloe,Negative,I cancelled last month and you still took payment.
+m107,dana,Negative,I cancelled last month and you still took payment.
+m107,eli,Negative,I cancelled last month and you still took payment.
+m108,ana,Neutral,Is the product made from recycled materials?
+m108,ben,Neutral,Is the product made from recycled materials?
+m108,chloe,Neutral,Is the product made from recycled materials?
+m108,dana,Neutral,Is the product made from recycled materials?
+m108,eli,Neutral,Is the product made from recycled materials?
+m109,ben,Negative,"Really impressed that the tracking page says ""delivered"". It wasn't."
+m109,chloe,Negative,"Really impressed that the tracking page says ""delivered"". It wasn't."
+m109,dana,Negative,"Really impressed that the tracking page says ""delivered"". It wasn't."
+m109,eli,Negative,"Really impressed that the tracking page says ""delivered"". It wasn't."
+m110,ana,Negative,The warranty claim was rejected with no explanation.
+m110,ben,Negative,The warranty claim was rejected with no explanation.
+m110,chloe,Negative,The warranty claim was rejected with no explanation.
+m110,dana,Negative,The warranty claim was rejected with no explanation.
+m110,eli,Sarcastic,The warranty claim was rejected with no explanation.
+m111,ana,Positive,Your team fixed a bug I reported within a week. Amazing.
+m111,ben,Positive,Your team fixed a bug I reported within a week. Amazing.
+m111,chloe,Positive,Your team fixed a bug I reported within a week. Amazing.
+m111,dana,Positive,Your team fixed a bug I reported within a week. Amazing.
+m111,eli,Positive,Your team fixed a bug I reported within a week. Amazing.
+m112,ana,Positive,My discount code was rejected at checkout.
+m112,ben,Negative,My discount code was rejected at checkout.
+m112,chloe,Negative,My discount code was rejected at checkout.
+m112,dana,Neutral,My discount code was rejected at checkout.
+m112,eli,Sarcastic,My discount code was rejected at checkout.
+m113,chloe,Sarcastic,Great job losing my order again. You're getting good at it.
+m113,eli,Negative,Great job losing my order again. You're getting good at it.
+m114,ana,Sarcastic,"Wow, a refund in only four months. Record time."
+m114,ben,Positive,"Wow, a refund in only four months. Record time."
+m114,chloe,Sarcastic,"Wow, a refund in only four months. Record time."
+m114,dana,Neutral,"Wow, a refund in only four months. Record time."
+m114,eli,Sarcastic,"Wow, a refund in only four months. Record time."
+m115,ana,Negative,The installer never showed up and never called.
+m115,ben,Negative,The installer never showed up and never called.
+m115,chloe,Negative,The installer never showed up and never called.
+m115,eli,Sarcastic,The installer never showed up and never called.
+m116,ana,Neutral,Could you tell me the dimensions of the large box?
+m116,ben,Neutral,Could you tell me the dimensions of the large box?
+m116,chloe,Neutral,Could you tell me the dimensions of the large box?
+m116,dana,Neutral,Could you tell me the dimensions of the large box?
+m116,eli,Neutral,Could you tell me the dimensions of the large box?
+m117,ben,Positive,The chat support was quick and friendly.
+m117,chloe,Positive,The chat support was quick and friendly.
+m117,dana,Positive,The chat support was quick and friendly.
+m117,eli,Positive,The chat support was quick and friendly.
+m118,ana,Negative,Thanks for the 40% off coupon on a product you no longer sell.
+m118,ben,Sarcastic,Thanks for the 40% off coupon on a product you no longer sell.
+m118,dana,Neutral,Thanks for the 40% off coupon on a product you no longer sell.
+m118,eli,Negative,Thanks for the 40% off coupon on a product you no longer sell.
+m119,ana,Neutral,Can I change the delivery address on order 4471?
+m119,ben,Neutral,Can I change the delivery address on order 4471?
+m119,chloe,Sarcastic,Can I change the delivery address on order 4471?
+m119,dana,Neutral,Can I change the delivery address on order 4471?
+m119,eli,Neutral,Can I change the delivery address on order 4471?
+m120,ana,Neutral,Do you ship to Norway?
+m120,ben,Neutral,Do you ship to Norway?
+m120,dana,Neutral,Do you ship to Norway?
+m120,eli,Neutral,Do you ship to Norway?
+m121,ana,Sarcastic,Superb quality. It lasted almost a whole week.
+m121,ben,Sarcastic,Superb quality. It lasted almost a whole week.
+m121,chloe,Negative,Superb quality. It lasted almost a whole week.
+m121,dana,Negative,Superb quality. It lasted almost a whole week.
+m121,eli,Negative,Superb quality. It lasted almost a whole week.
+m122,ana,Neutral,Is there a student discount?
+m122,ben,Neutral,Is there a student discount?
+m122,chloe,Neutral,Is there a student discount?
+m122,dana,Neutral,Is there a student discount?
+m122,eli,Neutral,Is there a student discount?
+m123,ana,Neutral,What's the difference between the Basic and Plus plans?
+m123,ben,Neutral,What's the difference between the Basic and Plus plans?
+m123,chloe,Neutral,What's the difference between the Basic and Plus plans?
+m123,dana,Neutral,What's the difference between the Basic and Plus plans?
+m123,eli,Neutral,What's the difference between the Basic and Plus plans?
+m124,ana,Neutral,I'm writing to confirm my appointment on the 14th.
+m124,ben,Neutral,I'm writing to confirm my appointment on the 14th.
+m124,chloe,Neutral,I'm writing to confirm my appointment on the 14th.
+m124,dana,Neutral,I'm writing to confirm my appointment on the 14th.
+m125,ana,Positive,Appreciate you replacing the cracked screen at no charge.
+m125,ben,Positive,Appreciate you replacing the cracked screen at no charge.
+m125,chloe,Positive,Appreciate you replacing the cracked screen at no charge.
+m125,eli,Positive,Appreciate you replacing the cracked screen at no charge.
+m126,ana,Sarcastic,I got a bill for a service I never ordered.
+m126,ben,Negative,I got a bill for a service I never ordered.
+m126,dana,Negative,I got a bill for a service I never ordered.
+m126,eli,Sarcastic,I got a bill for a service I never ordered.
+m127,ana,Negative,"The tracking link has said ""in transit"" for ten days."
+m127,chloe,Negative,"The tracking link has said ""in transit"" for ten days."
+m127,dana,Negative,"The tracking link has said ""in transit"" for ten days."
+m128,ana,Neutral,"My order number is 88213, just confirming it was received."
+m128,ben,Neutral,"My order number is 88213, just confirming it was received."
+m128,chloe,Neutral,"My order number is 88213, just confirming it was received."
+m128,dana,Neutral,"My order number is 88213, just confirming it was received."
+m128,eli,Neutral,"My order number is 88213, just confirming it was received."
+m129,ana,Neutral,What's the weight limit for the standard courier?
+m129,ben,Neutral,What's the weight limit for the standard courier?
+m129,chloe,Neutral,What's the weight limit for the standard courier?
+m129,eli,Neutral,What's the weight limit for the standard courier?
+m130,ana,Positive,"The discount code worked perfectly, thanks!"
+m130,ben,Positive,"The discount code worked perfectly, thanks!"
+m130,chloe,Positive,"The discount code worked perfectly, thanks!"
+m130,dana,Neutral,"The discount code worked perfectly, thanks!"
+m131,ana,Negative,Your agent hung up on me mid-conversation.
+m131,ben,Negative,Your agent hung up on me mid-conversation.
+m131,chloe,Negative,Your agent hung up on me mid-conversation.
+m131,dana,Negative,Your agent hung up on me mid-conversation.
+m131,eli,Negative,Your agent hung up on me mid-conversation.
+m132,chloe,Negative,My account was locked and support won't unlock it.
+m132,dana,Negative,My account was locked and support won't unlock it.
+m132,eli,Negative,My account was locked and support won't unlock it.
+m133,ana,Sarcastic,Your chatbot just loops back to the main menu.
+m133,ben,Sarcastic,Your chatbot just loops back to the main menu.
+m133,dana,Neutral,Your chatbot just loops back to the main menu.
+m133,eli,Negative,Your chatbot just loops back to the main menu.
+m134,ana,Positive,The courier was polite and even carried it upstairs.
+m134,ben,Positive,The courier was polite and even carried it upstairs.
+m134,chloe,Positive,The courier was polite and even carried it upstairs.
+m134,dana,Positive,The courier was polite and even carried it upstairs.
+m134,eli,Positive,The courier was polite and even carried it upstairs.
+m135,ana,Negative,Of course the one item I needed was the one you forgot.
+m135,ben,Negative,Of course the one item I needed was the one you forgot.
+m135,chloe,Sarcastic,Of course the one item I needed was the one you forgot.
+m135,dana,Negative,Of course the one item I needed was the one you forgot.
+m135,eli,Sarcastic,Of course the one item I needed was the one you forgot.
+m136,ana,Neutral,What payment methods do you accept?
+m136,ben,Negative,What payment methods do you accept?
+m136,chloe,Neutral,What payment methods do you accept?
+m136,dana,Neutral,What payment methods do you accept?
+m137,ana,Positive,"Really happy with the headphones, sound is excellent."
+m137,ben,Positive,"Really happy with the headphones, sound is excellent."
+m137,chloe,Positive,"Really happy with the headphones, sound is excellent."
+m137,dana,Positive,"Really happy with the headphones, sound is excellent."
+m137,eli,Positive,"Really happy with the headphones, sound is excellent."
+m138,ana,Negative,The login page has been down all morning.
+m138,ben,Negative,The login page has been down all morning.
+m138,chloe,Negative,The login page has been down all morning.
+m138,dana,Neutral,The login page has been down all morning.
+m138,eli,Negative,The login page has been down all morning.
+m139,ana,Negative,"The replacement arrived broken, just like the first one."
+m139,ben,Negative,"The replacement arrived broken, just like the first one."
+m139,chloe,Negative,"The replacement arrived broken, just like the first one."
+m139,dana,Negative,"The replacement arrived broken, just like the first one."
+m139,eli,Negative,"The replacement arrived broken, just like the first one."
+m140,ana,Sarcastic,"Brilliant, the ""express"" delivery took eleven days."
+m140,ben,Sarcastic,"Brilliant, the ""express"" delivery took eleven days."
+m140,chloe,Negative,"Brilliant, the ""express"" delivery took eleven days."
+m140,dana,Neutral,"Brilliant, the ""express"" delivery took eleven days."
+m140,eli,Negative,"Brilliant, the ""express"" delivery took eleven days."
+m141,ana,Positive,Order arrived well packed and exactly as described.
+m141,ben,Positive,Order arrived well packed and exactly as described.
+m141,chloe,Positive,Order arrived well packed and exactly as described.
+m141,dana,Positive,Order arrived well packed and exactly as described.
+m141,eli,Positive,Order arrived well packed and exactly as described.
+m142,ana,Neutral,Please cancel my subscription at the end of this month.
+m142,ben,Neutral,Please cancel my subscription at the end of this month.
+m142,chloe,Neutral,Please cancel my subscription at the end of this month.
+m142,dana,Neutral,Please cancel my subscription at the end of this month.
+m142,eli,Neutral,Please cancel my subscription at the end of this month.
+m143,ana,Neutral,Delivery slot missed twice this week.
+m143,ben,Negative,Delivery slot missed twice this week.
+m143,chloe,Negative,Delivery slot missed twice this week.
+m143,dana,Neutral,Delivery slot missed twice this week.
+m143,eli,Negative,Delivery slot missed twice this week.
+m144,ana,Negative,I just love spending my Saturday on hold with you.
+m144,ben,Negative,I just love spending my Saturday on hold with you.
+m144,chloe,Sarcastic,I just love spending my Saturday on hold with you.
+m144,dana,Sarcastic,I just love spending my Saturday on hold with you.
+m144,eli,Negative,I just love spending my Saturday on hold with you.
+m145,ana,Positive,The battery lasts all week now. Fantastic update.
+m145,ben,Positive,The battery lasts all week now. Fantastic update.
+m145,chloe,Positive,The battery lasts all week now. Fantastic update.
+m145,dana,Neutral,The battery lasts all week now. Fantastic update.
+m145,eli,Positive,The battery lasts all week now. Fantastic update.
+m146,ana,Positive,"Thank you for extending my trial, it made a real difference."
+m146,ben,Positive,"Thank you for extending my trial, it made a real difference."
+m146,chloe,Positive,"Thank you for extending my trial, it made a real difference."
+m146,eli,Positive,"Thank you for extending my trial, it made a real difference."
+m147,ana,Positive,"Kudos to the team, the outage was handled really well."
+m147,ben,Positive,"Kudos to the team, the outage was handled really well."
+m147,chloe,Positive,"Kudos to the team, the outage was handled really well."
+m147,eli,Positive,"Kudos to the team, the outage was handled really well."
+m148,ana,Positive,My parcel was tracked every step of the way. Very reassuring.
+m148,ben,Positive,My parcel was tracked every step of the way. Very reassuring.
+m148,chloe,Positive,My parcel was tracked every step of the way. Very reassuring.
+m148,dana,Neutral,My parcel was tracked every step of the way. Very reassuring.
+m148,eli,Positive,My parcel was tracked every step of the way. Very reassuring.
+m149,ana,Neutral,Which languages does the app support?
+m149,ben,Neutral,Which languages does the app support?
+m149,chloe,Neutral,Which languages does the app support?
+m149,dana,Neutral,Which languages does the app support?
+m149,eli,Neutral,Which languages does the app support?
+m150,ana,Negative,Thanks for the survey about the call you never returned.
+m150,ben,Negative,Thanks for the survey about the call you never returned.
+m150,chloe,Sarcastic,Thanks for the survey about the call you never returned.
+m150,eli,Negative,Thanks for the survey about the call you never returned.
+m151,ana,Neutral,I received the parcel today.
+m151,ben,Neutral,I received the parcel today.
+m151,chloe,Neutral,I received the parcel today.
+m151,dana,Neutral,I received the parcel today.
+m151,eli,Neutral,I received the parcel today.
+m152,ana,Neutral,When does the summer sale end?
+m152,chloe,Neutral,When does the summer sale end?
+m152,dana,Neutral,When does the summer sale end?
+m153,ana,Neutral,How long does a standard refund usually take?
+m153,ben,Neutral,How long does a standard refund usually take?
+m153,dana,Neutral,How long does a standard refund usually take?
+m153,eli,Positive,How long does a standard refund usually take?
+m154,ana,Neutral,Which charger is compatible with the X2?
+m154,chloe,Neutral,Which charger is compatible with the X2?
+m154,dana,Neutral,Which charger is compatible with the X2?
+m155,ana,Sarcastic,"Oh joy, the app logged me out mid-payment. Again."
+m155,ben,Sarcastic,"Oh joy, the app logged me out mid-payment. Again."
+m155,chloe,Negative,"Oh joy, the app logged me out mid-payment. Again."
+m155,dana,Negative,"Oh joy, the app logged me out mid-payment. Again."
+m155,eli,Sarcastic,"Oh joy, the app logged me out mid-payment. Again."
+m156,ana,Neutral,Does the warranty cover accidental damage?
+m156,ben,Neutral,Does the warranty cover accidental damage?
+m156,chloe,Neutral,Does the warranty cover accidental damage?
+m156,dana,Neutral,Does the warranty cover accidental damage?
+m156,eli,Positive,Does the warranty cover accidental damage?
+m157,ana,Sarcastic,Nice touch leaving my parcel in the neighbour's bin.
+m157,ben,Negative,Nice touch leaving my parcel in the neighbour's bin.
+m157,chloe,Sarcastic,Nice touch leaving my parcel in the neighbour's bin.
+m157,dana,Negative,Nice touch leaving my parcel in the neighbour's bin.
+m157,eli,Sarcastic,Nice touch leaving my parcel in the neighbour's bin.
+m158,ana,Negative,The refund went to a card I no longer have.
+m158,ben,Sarcastic,The refund went to a card I no longer have.
+m158,chloe,Negative,The refund went to a card I no longer have.
+m158,eli,Negative,The refund went to a card I no longer have.
+m159,ana,Positive,Just wanted to say the delivery arrived a day early. Thank you!
+m159,ben,Positive,Just wanted to say the delivery arrived a day early. Thank you!
+m159,chloe,Positive,Just wanted to say the delivery arrived a day early. Thank you!
+m159,dana,Neutral,Just wanted to say the delivery arrived a day early. Thank you!
+m159,eli,Positive,Just wanted to say the delivery arrived a day early. Thank you!
+m160,ana,Sarcastic,Really love how the app forgets my settings every day.
+m160,ben,Sarcastic,Really love how the app forgets my settings every day.
+m160,chloe,Sarcastic,Really love how the app forgets my settings every day.
+m160,dana,Neutral,Really love how the app forgets my settings every day.
+m160,eli,Sarcastic,Really love how the app forgets my settings every day.
+m161,ana,Positive,"Your agent Maria was fantastic, problem solved in five minutes."
+m161,chloe,Positive,"Your agent Maria was fantastic, problem solved in five minutes."
+m161,dana,Positive,"Your agent Maria was fantastic, problem solved in five minutes."
+m161,eli,Positive,"Your agent Maria was fantastic, problem solved in five minutes."
+m162,ana,Negative,The update deleted all my saved playlists.
+m162,chloe,Negative,The update deleted all my saved playlists.
+m162,dana,Negative,The update deleted all my saved playlists.
+m162,eli,Negative,The update deleted all my saved playlists.
+m163,ana,Sarcastic,Love paying premium prices for a beta product.
+m163,ben,Negative,Love paying premium prices for a beta product.
+m163,chloe,Negative,Love paying premium prices for a beta product.
+m163,eli,Negative,Love paying premium prices for a beta product.
+m164,ana,Positive,"I was worried about the return, but it was easy."
+m164,ben,Positive,"I was worried about the return, but it was easy."
+m164,chloe,Positive,"I was worried about the return, but it was easy."
+m164,dana,Neutral,"I was worried about the return, but it was easy."
+m164,eli,Positive,"I was worried about the return, but it was easy."
+m165,ana,Negative,The sofa has a tear in the fabric.
+m165,ben,Sarcastic,The sofa has a tear in the fabric.
+m165,chloe,Negative,The sofa has a tear in the fabric.
+m165,dana,Negative,The sofa has a tear in the fabric.
+m165,eli,Negative,The sofa has a tear in the fabric.
+m166,ana,Positive,"The dark mode is lovely, my eyes thank you."
+m166,ben,Positive,"The dark mode is lovely, my eyes thank you."
+m166,chloe,Positive,"The dark mode is lovely, my eyes thank you."
+m166,dana,Positive,"The dark mode is lovely, my eyes thank you."
+m166,eli,Positive,"The dark mode is lovely, my eyes thank you."
+m167,ana,Neutral,Please add my colleague to our team workspace.
+m167,ben,Neutral,Please add my colleague to our team workspace.
+m167,chloe,Neutral,Please add my colleague to our team workspace.
+m167,dana,Neutral,Please add my colleague to our team workspace.
+m167,eli,Neutral,Please add my colleague to our team workspace.
+m168,chloe,Positive,Impressed that you called back when you said you would.
+m168,dana,Sarcastic,Impressed that you called back when you said you would.
+m168,eli,Positive,Impressed that you called back when you said you would.
+m169,ana,Negative,Very disappointed with the quality of the print.
+m169,ben,Negative,Very disappointed with the quality of the print.
+m169,chloe,Negative,Very disappointed with the quality of the print.
+m169,dana,Neutral,Very disappointed with the quality of the print.
+m169,eli,Negative,Very disappointed with the quality of the print.
+m170,ana,Negative,Your hold music is lovely. I've heard it for an hour.
+m170,ben,Sarcastic,Your hold music is lovely. I've heard it for an hour.
+m170,chloe,Sarcastic,Your hold music is lovely. I've heard it for an hour.
+m170,dana,Neutral,Your hold music is lovely. I've heard it for an hour.
+m170,eli,Sarcastic,Your hold music is lovely. I've heard it for an hour.
+m171,ana,Positive,Cheers for the heads-up about the maintenance window.
+m171,ben,Positive,Cheers for the heads-up about the maintenance window.
+m171,chloe,Positive,Cheers for the heads-up about the maintenance window.
+m171,dana,Positive,Cheers for the heads-up about the maintenance window.
+m171,eli,Positive,Cheers for the heads-up about the maintenance window.
+m172,ana,Neutral,When will the new model be available in Canada?
+m172,ben,Neutral,When will the new model be available in Canada?
+m172,chloe,Neutral,When will the new model be available in Canada?
+m172,dana,Sarcastic,When will the new model be available in Canada?
+m172,eli,Neutral,When will the new model be available in Canada?
+m173,ana,Neutral,How do I reset my password?
+m173,ben,Neutral,How do I reset my password?
+m173,chloe,Neutral,How do I reset my password?
+m173,dana,Neutral,How do I reset my password?
+m174,ana,Negative,I'm still waiting for the refund you promised in May.
+m174,ben,Sarcastic,I'm still waiting for the refund you promised in May.
+m174,chloe,Negative,I'm still waiting for the refund you promised in May.
+m174,dana,Negative,I'm still waiting for the refund you promised in May.
+m174,eli,Negative,I'm still waiting for the refund you promised in May.
+m175,ana,Negative,My order is three weeks late and nobody replies to my emails.
+m175,ben,Negative,My order is three weeks late and nobody replies to my emails.
+m175,chloe,Negative,My order is three weeks late and nobody replies to my emails.
+m175,dana,Neutral,My order is three weeks late and nobody replies to my emails.
+m175,eli,Negative,My order is three weeks late and nobody replies to my emails.
+m176,ben,Sarcastic,"Oh perfect, the store closed ten minutes before the posted time."
+m176,chloe,Negative,"Oh perfect, the store closed ten minutes before the posted time."
+m176,dana,Sarcastic,"Oh perfect, the store closed ten minutes before the posted time."
+m176,eli,Sarcastic,"Oh perfect, the store closed ten minutes before the posted time."
+m177,ana,Negative,I adore how every update moves the settings menu.
+m177,ben,Negative,I adore how every update moves the settings menu.
+m177,chloe,Sarcastic,I adore how every update moves the settings menu.
+m177,dana,Negative,I adore how every update moves the settings menu.
+m177,eli,Negative,I adore how every update moves the settings menu.
+m178,ana,Neutral,My contract renews in March; what will the price be?
+m178,ben,Sarcastic,My contract renews in March; what will the price be?
+m178,chloe,Neutral,My contract renews in March; what will the price be?
+m178,dana,Neutral,My contract renews in March; what will the price be?
+m178,eli,Neutral,My contract renews in March; what will the price be?
+m179,ana,Negative,The heater stopped working after two days.
+m179,ben,Negative,The heater stopped working after two days.
+m179,chloe,Negative,The heater stopped working after two days.
+m179,dana,Sarcastic,The heater stopped working after two days.
+m180,ana,Sarcastic,Clearly the instructions were written by a genius.
+m180,chloe,Sarcastic,Clearly the instructions were written by a genius.
+m180,dana,Neutral,Clearly the instructions were written by a genius.
+m181,ana,Positive,Thanks for making cancellation so straightforward.
+m181,ben,Positive,Thanks for making cancellation so straightforward.
+m181,chloe,Positive,Thanks for making cancellation so straightforward.
+m181,eli,Positive,Thanks for making cancellation so straightforward.
+m182,ana,Negative,Everything arrived in perfect condition. Happy customer here.
+m182,ben,Positive,Everything arrived in perfect condition. Happy customer here.
+m182,chloe,Positive,Everything arrived in perfect condition. Happy customer here.
+m182,dana,Positive,Everything arrived in perfect condition. Happy customer here.
+m182,eli,Positive,Everything arrived in perfect condition. Happy customer here.
+m183,ana,Negative,The app crashes every time I open the camera.
+m183,ben,Sarcastic,The app crashes every time I open the camera.
+m183,chloe,Negative,The app crashes every time I open the camera.
+m183,dana,Negative,The app crashes every time I open the camera.
+m183,eli,Negative,The app crashes every time I open the camera.
+m184,ana,Negative,Thanks so much for charging me twice. Very generous.
+m184,ben,Sarcastic,Thanks so much for charging me twice. Very generous.
+m184,chloe,Sarcastic,Thanks so much for charging me twice. Very generous.
+m184,dana,Neutral,Thanks so much for charging me twice. Very generous.
+m184,eli,Sarcastic,Thanks so much for charging me twice. Very generous.
+m185,ana,Positive,Wonderful experience from start to finish.
+m185,chloe,Positive,Wonderful experience from start to finish.
+m185,dana,Positive,Wonderful experience from start to finish.
+m185,eli,Positive,Wonderful experience from start to finish.
+m186,ana,Negative,"Such a helpful answer: ""have you tried turning it off?"""
+m186,ben,Sarcastic,"Such a helpful answer: ""have you tried turning it off?"""
+m186,chloe,Sarcastic,"Such a helpful answer: ""have you tried turning it off?"""
+m186,dana,Sarcastic,"Such a helpful answer: ""have you tried turning it off?"""
+m186,eli,Sarcastic,"Such a helpful answer: ""have you tried turning it off?"""
+m187,ana,Neutral,Does the premium plan include phone support?
+m187,ben,Neutral,Does the premium plan include phone support?
+m187,chloe,Neutral,Does the premium plan include phone support?
+m187,dana,Neutral,Does the premium plan include phone support?
+m188,ana,Neutral,Can I change my username?
+m188,ben,Neutral,Can I change my username?
+m188,chloe,Neutral,Can I change my username?
+m188,dana,Neutral,Can I change my username?
+m188,eli,Neutral,Can I change my username?
+m189,ana,Negative,You sent the wrong size again.
+m189,ben,Negative,You sent the wrong size again.
+m189,chloe,Negative,You sent the wrong size again.
+m189,dana,Neutral,You sent the wrong size again.
+m189,eli,Sarcastic,You sent the wrong size again.
+m190,ana,Negative,The phone overheats when I use maps.
+m190,ben,Negative,The phone overheats when I use maps.
+m190,chloe,Negative,The phone overheats when I use maps.
+m190,dana,Negative,The phone overheats when I use maps.
+m190,eli,Negative,The phone overheats when I use maps.
+m191,ana,Negative,"Wonderful, my password reset email arrived a day later."
+m191,ben,Negative,"Wonderful, my password reset email arrived a day later."
+m191,chloe,Sarcastic,"Wonderful, my password reset email arrived a day later."
+m191,dana,Sarcastic,"Wonderful, my password reset email arrived a day later."
+m191,eli,Negative,"Wonderful, my password reset email arrived a day later."
+m192,ana,Neutral,Can you confirm whether my return has been processed?
+m192,ben,Neutral,Can you confirm whether my return has been processed?
+m192,chloe,Neutral,Can you confirm whether my return has been processed?
+m192,eli,Neutral,Can you confirm whether my return has been processed?
+m193,ana,Neutral,I'd like to update the email address on my account.
+m193,ben,Neutral,I'd like to update the email address on my account.
+m193,chloe,Neutral,I'd like to update the email address on my account.
+m193,dana,Neutral,I'd like to update the email address on my account.
+m193,eli,Neutral,I'd like to update the email address on my account.
+m194,ben,Neutral,I've moved house; how do I update my billing address?
+m194,chloe,Neutral,I've moved house; how do I update my billing address?
+m194,dana,Neutral,I've moved house; how do I update my billing address?
+m194,eli,Neutral,I've moved house; how do I update my billing address?
+m195,ana,Negative,I've been on hold for forty minutes. This is unacceptable.
+m195,ben,Sarcastic,I've been on hold for forty minutes. This is unacceptable.
+m195,chloe,Negative,I've been on hold for forty minutes. This is unacceptable.
+m195,dana,Negative,I've been on hold for forty minutes. This is unacceptable.
+m195,eli,Negative,I've been on hold for forty minutes. This is unacceptable.
+m196,ben,Sarcastic,The website keeps logging me out.
+m196,chloe,Sarcastic,The website keeps logging me out.
+m196,dana,Neutral,The website keeps logging me out.
+m196,eli,Sarcastic,The website keeps logging me out.
+m197,ana,Positive,"The new invoice layout is much easier to read, thanks."
+m197,ben,Positive,"The new invoice layout is much easier to read, thanks."
+m197,chloe,Positive,"The new invoice layout is much easier to read, thanks."
+m197,dana,Positive,"The new invoice layout is much easier to read, thanks."
+m197,eli,Positive,"The new invoice layout is much easier to read, thanks."
+m198,ana,Neutral,Can I pay by bank transfer?
+m198,ben,Negative,Can I pay by bank transfer?
+m198,chloe,Neutral,Can I pay by bank transfer?
+m198,dana,Neutral,Can I pay by bank transfer?
+m198,eli,Neutral,Can I pay by bank transfer?
+m199,ana,Neutral,Is there a phone number I can call instead of chat?
+m199,dana,Neutral,Is there a phone number I can call instead of chat?
+m199,eli,Negative,Is there a phone number I can call instead of chat?
+m200,ana,Negative,I'm really frustrated. Nothing has been fixed.
+m200,ben,Negative,I'm really frustrated. Nothing has been fixed.
+m200,chloe,Negative,I'm really frustrated. Nothing has been fixed.
+m200,dana,Negative,I'm really frustrated. Nothing has been fixed.
+m200,eli,Negative,I'm really frustrated. Nothing has been fixed.

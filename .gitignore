@@ -65,3 +65,7 @@ Thumbs.db
 # The surface briefs beside them are durable and stay tracked.
 .impeccable/review/
 .impeccable/config.local.json
+
+# golden.py's Python environment
+scripts/.venv/
+__pycache__/
