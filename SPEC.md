@@ -199,6 +199,18 @@ The reliability matrix (`ratings`) is the only input every metric takes.
 Every metric is a pure function of `Dataset` (or its matrix plus level). Every result
 carries the n it was computed on, so the UI never has to recompute it.
 
+Results are a `MetricResult` (`metrics/metric-result.ts`), one of:
+
+- `{ kind: 'value', value, n }`.
+- `{ kind: 'no-variation', n }`: a chance-corrected metric whose chance term is zero
+  (every pairable value is one category). Percent agreement ignores chance, so a constant
+  dataset gives it the value 1, not this.
+- `{ kind: 'no-pairable-values' }`: nothing to compute on (n = 0). The guardrails block
+  this for the full dataset, but leave-one-out α can reach it.
+
+n counts pairable values for α, pairable items for overall percent agreement, and shared
+items for pair percent agreement.
+
 | Metric | Missing data | Notes |
 | --- | --- | --- |
 | Percent agreement (overall) | Items with ≥2 labels | Mean over items of P_i = share of agreeing rater pairs on item i. No band; UI notes it ignores chance. |

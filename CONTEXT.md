@@ -14,7 +14,9 @@ naming, this file wins inside Concord.
 - **Shape**: the input file's layout, `long` (one rating per row) or `wide` (one item per row, one column per rater).
 - **Mapping**: the user-confirmed choice of shape, columns, level and category order that turns a raw table into a dataset.
 - **Pairable value**: a rating on an item that has at least two ratings. Only pairable values enter α.
+- **Pairable item**: an item with at least two ratings. Overall percent agreement averages over these.
 - **Coincidence matrix**: category × category matrix of pairable values, each item contributing its ordered pairs weighted 1/(m−1). The confusion view shows it.
+- **Metric result**: a metric's outcome: a value with its n, *no variation* (a chance-corrected metric on data with one category, so its chance term is zero), or *no pairable values*.
 - **Confusion**: an off-diagonal pair of categories {a, b} in the coincidence matrix. The drill-down selection is a confusion.
 - **Disagreement share**: a confusion's fraction of all off-diagonal mass.
 - **Hotspot**: an item ranked by how much its raters disagree (1 − P_i, or mean ordinal distance).

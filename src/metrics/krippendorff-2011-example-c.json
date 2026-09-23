@@ -1,0 +1,15 @@
+{
+  "source": "Krippendorff, K. (2011). Computing Krippendorff's Alpha-Reliability. Annenberg School for Communication, University of Pennsylvania. https://repository.upenn.edu/asc_papers/43 (example C: 4 coders, 12 units, missing values)",
+  "categories": ["1", "2", "3", "4", "5"],
+  "ratings": [
+    [1, 2, 3, 3, 2, 1, 4, 1, 2, null, null, null],
+    [1, 2, 3, 3, 2, 2, 4, 1, 2, 5, null, 3],
+    [null, 3, 3, 3, 2, 3, 4, 2, 2, 5, 1, null],
+    [1, 2, 3, 3, 2, 4, 4, 1, 2, 5, 1, null]
+  ],
+  "expected": {
+    "pairableValues": 40,
+    "nominal": 0.7434,
+    "ordinal": 0.8154
+  }
+}
