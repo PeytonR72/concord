@@ -94,6 +94,21 @@ describe('screenReducer', () => {
     ).toBe(readingFile)
   })
 
+  it('confirms a mapping into the workbench', () => {
+    const mapping: Screen = { screen: 'mapping', fileName: 'labels.csv', table }
+    expect(screenReducer(mapping, { type: 'mapping-confirmed', dataset })).toEqual({
+      screen: 'workbench',
+      dataset,
+    })
+  })
+
+  it('ignores a confirmed mapping anywhere but the mapping screen', () => {
+    expect(screenReducer(initialScreen, { type: 'mapping-confirmed', dataset })).toBe(
+      initialScreen,
+    )
+    expect(screenReducer(readingFile, { type: 'mapping-confirmed', dataset })).toBe(readingFile)
+  })
+
   it('returns to an idle landing page from any screen', () => {
     const workbench: Screen = { screen: 'workbench', dataset }
     expect(screenReducer(workbench, { type: 'returned-to-landing' })).toEqual(initialScreen)

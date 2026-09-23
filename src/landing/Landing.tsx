@@ -1,5 +1,6 @@
 import type { LandingStatus } from '../screen'
-import { eyebrow, primaryButton, screenFrame } from '../ui/classes'
+import { busyButton, eyebrow, primaryButton, screenFrame } from '../ui/classes'
+import { StatusIcon } from '../ui/StatusIcon'
 import { DropZone } from './DropZone'
 import { SchematicFigure } from './SchematicFigure'
 
@@ -27,7 +28,12 @@ export function Landing({ status, onTryDemo, onFiles }: Props) {
             your guidelines fail to separate, and lists the items behind each one.
           </p>
           <div className="flex flex-col items-start gap-3 pt-1">
-            <button type="button" className={primaryButton} onClick={onTryDemo} disabled={busy}>
+            <button
+              type="button"
+              className={`${primaryButton} ${busyButton}`}
+              onClick={onTryDemo}
+              disabled={busy}
+            >
               {loadingDemo ? 'Loading the demo…' : 'Try the demo'}
             </button>
             <p className="max-w-prose text-small text-ink-faint">
@@ -61,15 +67,7 @@ function LandingStatusMessage({ status }: { status: LandingStatus }) {
             'text-small text-critical'
           }
         >
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 16 16"
-            className="mt-0.5 size-4 shrink-0 fill-none stroke-current"
-            strokeWidth={1.5}
-          >
-            <circle cx="8" cy="8" r="6.5" />
-            <path d="M8 4.5v4M8 11v.5" strokeLinecap="round" />
-          </svg>
+          <StatusIcon tone="critical" />
           <p>{status.message}</p>
         </div>
       )}

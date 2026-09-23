@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import type { Dataset } from '../dataset/dataset'
 import type { Blocking, Warning } from './guardrails'
-import { mapDataset } from './map-dataset'
+import { mapDataset, mappedLabels } from './map-dataset'
 import type { LongMapping, Mapping, WideMapping } from './mapping'
 import { parseCsv, type RawTable } from './parse-csv'
 
@@ -469,5 +469,40 @@ describe('mapDataset: guardrails (SPEC.md)', () => {
     expect(mapped.warnings).toEqual([
       expect.objectContaining({ kind: 'conflicting-text', count: 1 }),
     ])
+  })
+})
+
+describe('mappedLabels', () => {
+  test("lists a long file's labels trimmed and first-seen, without missing tokens", () => {
+    const csv = [
+      'item,rater,label',
+      'm1,alice, Negative ',
+      'm1,bob,NA',
+      'm2,alice,Sarcastic',
+      'm2,bob,n/a',
+      'm3,alice,Null',
+      'm3,bob,',
+      'm4,alice,Negative',
+    ].join('\n')
+
+    expect(mappedLabels(table(csv), long())).toEqual(['Negative', 'Sarcastic'])
+  })
+
+  test('reads a wide file row by row, across the rater columns in mapping order', () => {
+    const csv = ['item,alice,bob,carol', 'm1,A,B,C', 'm2,D,A,E'].join('\n')
+
+    expect(mappedLabels(table(csv), wide([3, 1]))).toEqual(['C', 'A', 'E', 'D'])
+  })
+
+  test('matches the nominal categories mapDataset finds', () => {
+    const csv = 'item,rater,label\nm1,alice,b\nm1,bob,a\nm2,alice,c\nm2,bob,a'
+
+    expect(mappedLabels(table(csv), long())).toEqual(dataset(csv, long()).categories)
+  })
+
+  test('reads a column past the header as empty', () => {
+    expect(mappedLabels(table('item,rater,label\nm1,alice,a'), long({ labelColumn: 7 }))).toEqual(
+      [],
+    )
   })
 })

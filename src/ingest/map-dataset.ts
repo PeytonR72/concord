@@ -70,6 +70,22 @@ export function mapDataset(table: RawTable, mapping: Mapping): MappedDataset {
   }
 }
 
+// The distinct labels under a mapping's label column (long) or rater columns
+// (wide), in the order mapDataset first sees them: what the mapping screen
+// offers for ordering. Rows mapDataset would skip still contribute, so the
+// list may hold a label no rating ends up with, but never misses one.
+export function mappedLabels(table: RawTable, mapping: Mapping): string[] {
+  const columns = mapping.shape === 'long' ? [mapping.labelColumn] : mapping.raterColumns
+  const labels = new Set<string>()
+  for (const row of table.rows) {
+    for (const column of columns) {
+      const label = labelOf(cell(row, column))
+      if (label !== null) labels.add(label)
+    }
+  }
+  return [...labels]
+}
+
 // Problems that stop the mapping from being applied at all. The mapping screen
 // shouldn't produce them, but the mapping arrives here as a plain value.
 function checkMapping(width: number, mapping: Mapping, order: readonly string[]): Blocking[] {
@@ -224,8 +240,7 @@ class TableReader {
     }
     this.ratingLines.set(key, line)
 
-    const trimmed = raw.trim()
-    const label = MISSING_TOKENS.has(trimmed.toLowerCase()) ? null : trimmed
+    const label = labelOf(raw)
     if (label !== null) this.labels.add(label)
     this.ratings.push({ item, rater, label })
   }
@@ -260,6 +275,12 @@ function lines(all: readonly number[]): { count: number; lines: number[] } {
 
 function examples<T>(all: readonly T[]): { count: number; examples: T[] } {
   return { count: all.length, examples: all.slice(0, EXAMPLE_LIMIT) }
+}
+
+// A cell as a label: trimmed, or null when it holds a missing token.
+function labelOf(raw: string): string | null {
+  const trimmed = raw.trim()
+  return MISSING_TOKENS.has(trimmed.toLowerCase()) ? null : trimmed
 }
 
 function cell(row: readonly string[], column: number): string {

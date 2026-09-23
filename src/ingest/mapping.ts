@@ -25,3 +25,5 @@ type MappingCommon = {
   // data. A nominal dataset ignores it and uses first-seen order.
   categoryOrder: readonly string[]
 }
+
+export type Shape = Mapping['shape']

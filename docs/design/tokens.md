@@ -62,6 +62,7 @@ never relies on colour alone. The text colours clear 4.5:1 on both `paper` and t
 | `good` / `good-wash` | `#246e3a` / `#e9f0e9` | α reliable. |
 | `warn` / `warn-wash` | `#915c08` / `#f6ecdb` | α tentative; guardrail warnings. |
 | `critical` / `critical-wash` | `#ac312a` / `#f7e5e2` | α unreliable; refusals and blocking errors. |
+| `warn-rule` | `#dec9a8` | The border of a warning box. |
 | `critical-rule` | `#e5bab4` | The border of a refusal or blocking-error box. |
 
 The κ bands (slight to almost perfect) are six words on a convention, not verdicts, so

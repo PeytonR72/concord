@@ -1,9 +1,10 @@
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
+import type { Dataset } from './dataset/dataset'
 import { loadDemo } from './demo/demo-dataset'
 import { readCsvFile } from './ingest/parse-csv'
 import { checkDroppedFiles } from './landing/check-dropped-files'
 import { Landing } from './landing/Landing'
-import { MappingPlaceholder } from './mapping/MappingPlaceholder'
+import { MappingScreen } from './mapping/MappingScreen'
 import { initialScreen, screenReducer } from './screen'
 import { column } from './ui/classes'
 import { WorkbenchPlaceholder } from './workbench/WorkbenchPlaceholder'
@@ -11,6 +12,18 @@ import { WorkbenchPlaceholder } from './workbench/WorkbenchPlaceholder'
 // The app shell: a top bar over whichever screen the state names.
 export function App() {
   const [state, dispatch] = useReducer(screenReducer, initialScreen)
+
+  // A file dropped anywhere but the drop zone would make the browser open it
+  // and leave the page, so the window swallows drops nothing else takes.
+  useEffect(() => {
+    const swallow = (event: DragEvent) => event.preventDefault()
+    window.addEventListener('dragover', swallow)
+    window.addEventListener('drop', swallow)
+    return () => {
+      window.removeEventListener('dragover', swallow)
+      window.removeEventListener('drop', swallow)
+    }
+  }, [])
 
   async function tryDemo() {
     dispatch({ type: 'demo-requested' })
@@ -26,6 +39,10 @@ export function App() {
     const fileName = checked.value.name
     dispatch({ type: 'file-requested', fileName })
     dispatch({ type: 'file-read', fileName, result: await readCsvFile(checked.value) })
+  }
+
+  function analyse(dataset: Dataset) {
+    dispatch({ type: 'mapping-confirmed', dataset })
   }
 
   function startOver() {
@@ -47,9 +64,11 @@ export function App() {
         <Landing status={state.status} onTryDemo={tryDemo} onFiles={readFiles} />
       )}
       {state.screen === 'mapping' && (
-        <MappingPlaceholder
+        <MappingScreen
+          key={state.fileName}
           fileName={state.fileName}
           table={state.table}
+          onAnalyse={analyse}
           onStartOver={startOver}
         />
       )}

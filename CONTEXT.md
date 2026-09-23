@@ -13,6 +13,7 @@ naming, this file wins inside Concord.
 - **Level of measurement**: `nominal` (categories unordered) or `ordinal` (ordered). Interval and ratio are deferred.
 - **Shape**: the input file's layout, `long` (one rating per row) or `wide` (one item per row, one column per rater).
 - **Mapping**: the user-confirmed choice of shape, columns, level and category order that turns a raw table into a dataset.
+- **Guardrail**: a check on a mapping and its data, either *blocking* (the dataset can't be analysed until it is fixed) or a *warning* (it can, but something looks off). Guardrails are data; the mapping screen words them.
 - **Pairable value**: a rating on an item that has at least two ratings. Only pairable values enter α.
 - **Pairable item**: an item with at least two ratings. Overall percent agreement averages over these.
 - **Coincidence matrix**: category × category matrix of pairable values, each item contributing its ordered pairs weighted 1/(m−1). The confusion view shows it.

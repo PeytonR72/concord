@@ -494,6 +494,37 @@ toggle, drag-to-order categories (ordinal), blocking errors and warnings inline,
 
 - **Done when**: long, wide and ordinal files go from drop to a `Dataset` in the browser;
   each guardrail message renders.
+- **Decisions**:
+  - Layout: the form beside a preview of the file's first 8 rows (with file line numbers,
+    each column tagged with its role or "not used"), stacked below 768px. Blocking errors,
+    then warnings, then "Analyse" and "Start over" sit under the form, with a "Ready: …"
+    line naming the counts.
+  - Edits go through the pure `mapping/edit-mapping.ts`, and every edit re-runs
+    `mapDataset`, so the guardrails always describe what "Analyse" would produce. Clashing
+    choices (one column in two roles) are kept for the guardrails to name, except that a
+    wide item or text column stops being a rater. Switching shape keeps the item and text
+    columns: to wide, every other column becomes a rater; to long, the first two free
+    columns become rater and label.
+  - Wide raters: a wrapping grid of checkboxes with "Select all", "Select none" and a
+    count, scrolling past a fixed height. The item and text columns show but are disabled.
+    A column freed from the item or text role isn't ticked back as a rater: the screen
+    doesn't guess, and "Select all" is one click away.
+  - Ordinal order: the first switch to ordinal prefills the order with the labels in
+    first-seen order (`mappedLabels` in `ingest/map-dataset.ts`); switching to nominal and
+    back keeps the order the user set. When a column change alters the labels, labels
+    that left are dropped and new ones join the end, so the screen itself never produces
+    `unordered-labels`. Rows drag (plain HTML drag and drop) and have 44px up and down
+    buttons; at either end a button is `aria-disabled`, not `disabled`, so keyboard focus
+    stays on it after a move.
+  - Guardrail copy (`mapping/messages.ts`) is plain and says the fix, pointing at the
+    control for the file's shape. Row lists show up to 5 lines or examples, then "and N
+    more". `column-out-of-range`, `category-repeated` and `unordered-labels` can't be
+    reached from the screen but still have messages.
+  - Warnings get a `warn-rule` border token beside `critical-rule`. A disabled button
+    shows a progress cursor while loading and a not-allowed cursor while blocked.
+  - Stray file drops are swallowed on every screen, not just the landing page.
+  - Measured once on a 50,200-rating long file: drop to mapping screen about 0.4 s
+    (parsing included), and each edit about 0.2 s.
 
 ### Stage 10: Workbench: metric strip, confusion matrix, drill-down
 

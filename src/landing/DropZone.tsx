@@ -1,4 +1,4 @@
-import { type DragEvent as ReactDragEvent, useEffect, useId, useState } from 'react'
+import { type DragEvent as ReactDragEvent, useId, useState } from 'react'
 import { secondaryButton } from '../ui/classes'
 
 type Props = {
@@ -12,18 +12,6 @@ export function DropZone({ busy, onFiles }: Props) {
   const [dragging, setDragging] = useState(false)
   const inputId = useId()
   const hintId = useId()
-
-  // A file dropped beside the zone would make the browser open it and leave
-  // the page, so the window swallows drops the zone doesn't take.
-  useEffect(() => {
-    const swallow = (event: DragEvent) => event.preventDefault()
-    window.addEventListener('dragover', swallow)
-    window.addEventListener('drop', swallow)
-    return () => {
-      window.removeEventListener('dragover', swallow)
-      window.removeEventListener('drop', swallow)
-    }
-  }, [])
 
   function onDragOver(event: ReactDragEvent<HTMLElement>) {
     event.preventDefault()

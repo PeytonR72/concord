@@ -21,6 +21,7 @@ export type ScreenAction =
   | { type: 'file-requested'; fileName: string }
   | { type: 'file-refused'; message: string }
   | { type: 'file-read'; fileName: string; result: Result<RawTable, string> }
+  | { type: 'mapping-confirmed'; dataset: Dataset }
   | { type: 'returned-to-landing' }
 
 export const initialScreen: Screen = { screen: 'landing', status: { kind: 'idle' } }
@@ -60,6 +61,10 @@ export function screenReducer(state: Screen, action: ScreenAction): Screen {
       if (!result.ok) return refused(`${fileName} couldn't be read. ${result.error}`)
       return { screen: 'mapping', fileName, table: result.value }
     }
+
+    case 'mapping-confirmed':
+      if (state.screen !== 'mapping') return state
+      return { screen: 'workbench', dataset: action.dataset }
   }
 }
 
