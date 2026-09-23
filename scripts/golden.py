@@ -133,7 +133,7 @@ def main():
             for index, rater in enumerate(raters)
         ],
     }
-    OUTPUT.write_text(json.dumps(golden, indent=2) + "\n", encoding="utf-8")
+    OUTPUT.write_text(json.dumps(golden, indent=2) + "\n", encoding="utf-8", newline="\n")
     print(json.dumps({key: golden[key] for key in ["alpha", "fleissKappa", "meanPairwiseKappa"]}))
     print("LOO", [(row["rater"], round(row["value"], 3)) for row in golden["leaveOneOutAlpha"]])
 
