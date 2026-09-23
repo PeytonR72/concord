@@ -71,7 +71,8 @@ Reuses Puddle's (github.com/PeytonR72/puddle) choices except where noted.
 | --- | --- |
 | Framework | React 18 + Vite 8 |
 | Language | TypeScript 7, Puddle's `tsconfig.app.json` strictness verbatim: `strict`, `noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noImplicitOverride`, `noUnusedLocals`, `noUnusedParameters`, `erasableSyntaxOnly`, `noFallthroughCasesInSwitch`, `verbatimModuleSyntax` |
-| Styling | Tailwind 4 via `@tailwindcss/vite`. Tokens planned in `docs/design/tokens.md`, implemented in `src/index.css`. New visual identity, not Puddle's herbarium. |
+| Styling | Tailwind 4 via `@tailwindcss/vite`. Tokens planned in `docs/design/tokens.md`, implemented in `src/index.css`, whose `@theme` resets Tailwind's default palette so only tokens exist. New visual identity ("lab notebook"), not Puddle's herbarium. |
+| Fonts | Newsreader, Instrument Sans and JetBrains Mono, self-hosted through `@fontsource-variable` packages: no font CDN, so the page makes no third-party request. |
 | CSV parsing | **Papa Parse** (differs from Puddle, see `docs/adr/0001-papa-parse-not-duckdb.md`) |
 | Charts | **None.** Heatmaps, bars and lists are hand-rolled SVG / CSS grid (differs from Puddle's Recharts). |
 | Tests | Vitest, node environment, `src/**/*.test.ts`. Pure modules are tested; components are not (same open decision as Puddle). |
@@ -91,6 +92,7 @@ src/
   analysis/    bands, confusion-shares, hotspots, rater-outliers, summary-markdown
   demo/        demo-dataset (loads public/demo/*.csv with its fixed mapping)
   landing/     landing page, drop zone
+  ui/          class strings shared across screens (column, eyebrow, buttons)
   mapping/     mapping screen
   workbench/   metric strip, confusion matrix, drill-down, tabs
   raters/      rater heatmap and table
@@ -466,6 +468,23 @@ landing page with "Try the demo" and a drop zone / file button, "synthetic data"
 
 - **Done when**: tokens doc exists and components use tokens only; landing passes at
   1280px and 375px widths; dropping a non-CSV shows a readable refusal.
+- **Decisions**:
+  - The shell (`src/App.tsx`, beside `main.tsx`) switches on a screen value from the
+    pure `src/screen.ts` reducer: landing (idle, loading the demo or a file, or refused),
+    mapping (file name and `RawTable`) or workbench (`Dataset`). One load at a time:
+    requests are ignored while one is in flight, and a result nobody is waiting on is
+    dropped.
+  - Until stage 10, "Try the demo" loads the demo and shows a placeholder with its counts
+    of items, raters and categories. Until stage 9, a valid CSV shows a placeholder with
+    its file name, headers and row count. Both have a "Start over" button.
+  - `landing/check-dropped-files.ts` refuses before reading: no file, more than one
+    file, a name not ending `.csv` (any case), or a MIME type other than `text/csv`,
+    `application/vnd.ms-excel` (Windows with Excel) or empty; a `.csv` reported as
+    `text/plain` is refused too. A wrong-type refusal names the file and points at the
+    planned Excel and TSV support. A parser refusal is
+    prefixed "<file> couldn't be read."
+  - A file dropped beside the drop zone is swallowed rather than opened by the browser.
+  - The landing figure is a schematic of the confusion view, not computed data.
 
 ### Stage 9: Mapping screen
 
