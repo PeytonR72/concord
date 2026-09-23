@@ -107,6 +107,11 @@ scripts/       build-demo.mjs, golden.py
 - **Missing**: empty cell, `NA`, `N/A`, `null` (case-insensitive, trimmed).
 - Labels are trimmed strings. `"1"` and `"1.0"` are different labels. No numeric
   coercion; ordinal order comes from the user.
+- **Parsing** (`ingest/parse-csv.ts`) refuses an empty file, an unclosed quote, and a
+  row with more cells than the header, naming the file line. Blank lines are skipped;
+  a short row is padded with empty (missing) cells. A header-only file parses to zero
+  rows and is left to the guardrails. Each row keeps the file line it starts on, for
+  guardrail messages.
 
 **Long** (one rating per row):
 
