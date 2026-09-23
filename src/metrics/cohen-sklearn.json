@@ -1,0 +1,12 @@
+{
+  "source": "sklearn.metrics.cohen_kappa_score(a, b, weights=None | 'linear' | 'quadratic'), scikit-learn. https://scikit-learn.org/stable/modules/generated/sklearn.metrics.cohen_kappa_score.html",
+  "categories": ["1", "2", "3", "4", "5"],
+  "a": [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 2, 3, 3, 4, 1],
+  "b": [1, 2, 4, 4, 5, 2, 2, 3, 5, 5, 1, 3, 2, 4, 2],
+  "expected": {
+    "n": 15,
+    "unweighted": 0.502762,
+    "linear": 0.736842,
+    "quadratic": 0.888889
+  }
+}

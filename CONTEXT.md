@@ -16,7 +16,9 @@ naming, this file wins inside Concord.
 - **Pairable value**: a rating on an item that has at least two ratings. Only pairable values enter α.
 - **Pairable item**: an item with at least two ratings. Overall percent agreement averages over these.
 - **Coincidence matrix**: category × category matrix of pairable values, each item contributing its ordered pairs weighted 1/(m−1). The confusion view shows it.
-- **Metric result**: a metric's outcome: a value with its n, *no variation* (a chance-corrected metric on data with one category, so its chance term is zero), or *no pairable values*.
+- **Metric result**: a metric's outcome: a value with its n, *no variation* (a chance-corrected metric on data with one category, so its chance term is zero), *too few items* (fewer shared or complete items than a κ trusts, with n and the minimum), or *no pairable values*.
+- **Shared item**: an item both raters of a pair labelled. Cohen's κ and pair percent agreement use these.
+- **Complete item**: an item every rater labelled (raters with no ratings at all aside). Fleiss' κ uses only these.
 - **Confusion**: an off-diagonal pair of categories {a, b} in the coincidence matrix. The drill-down selection is a confusion.
 - **Disagreement share**: a confusion's fraction of all off-diagonal mass.
 - **Hotspot**: an item ranked by how much its raters disagree (1 − P_i, or mean ordinal distance).

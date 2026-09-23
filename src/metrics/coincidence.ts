@@ -1,4 +1,5 @@
 import type { Dataset } from '../dataset/dataset'
+import { checkCategory } from './ratings'
 
 // One item's non-missing ratings, tallied by category.
 export type ItemTally = {
@@ -18,9 +19,7 @@ export function pairableItems(dataset: Dataset): ItemTally[] {
     for (const row of dataset.ratings) {
       const category = row[item] ?? null
       if (category === null) continue
-      if (!Number.isInteger(category) || category < 0 || category >= dataset.categories.length) {
-        throw new RangeError(`No category at index ${category}`)
-      }
+      checkCategory(dataset, category)
       counts.set(category, (counts.get(category) ?? 0) + 1)
       total += 1
     }

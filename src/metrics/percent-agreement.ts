@@ -1,6 +1,7 @@
 import type { Dataset } from '../dataset/dataset'
 import { pairableItems } from './coincidence'
 import type { MetricResult } from './metric-result'
+import { sharedRatings } from './ratings'
 
 // Overall percent agreement: the mean over items with at least two ratings of
 // P_i, the share of the item's rater pairs that agree. n counts those items.
@@ -22,22 +23,9 @@ export function percentAgreement(dataset: Dataset): MetricResult {
 // over the items both rated. n counts those shared items. A rater index
 // outside the dataset is a caller bug, not a refusal of input, so it throws.
 export function pairPercentAgreement(dataset: Dataset, a: number, b: number): MetricResult {
-  const first = dataset.ratings[a]
-  const second = dataset.ratings[b]
-  if (first === undefined || second === undefined) {
-    throw new RangeError(`No rater at index ${first === undefined ? a : b}`)
-  }
+  const shared = sharedRatings(dataset, a, b)
+  if (shared.length === 0) return { kind: 'no-pairable-values' }
 
-  let shared = 0
-  let matching = 0
-  dataset.items.forEach((_, item) => {
-    const x = first[item] ?? null
-    const y = second[item] ?? null
-    if (x === null || y === null) return
-    shared += 1
-    if (x === y) matching += 1
-  })
-
-  if (shared === 0) return { kind: 'no-pairable-values' }
-  return { kind: 'value', value: matching / shared, n: shared }
+  const matching = shared.filter(([x, y]) => x === y).length
+  return { kind: 'value', value: matching / shared.length, n: shared.length }
 }

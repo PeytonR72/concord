@@ -205,20 +205,37 @@ Results are a `MetricResult` (`metrics/metric-result.ts`), one of:
 - `{ kind: 'no-variation', n }`: a chance-corrected metric whose chance term is zero
   (every pairable value is one category). Percent agreement ignores chance, so a constant
   dataset gives it the value 1, not this.
+- `{ kind: 'too-few-items', n, minimum }`: something to compute on, but fewer items than
+  the metric trusts (`minimum` is 10): Cohen's κ below 10 shared items, Fleiss' κ below
+  10 complete items. The UI renders "too few shared items" or "N/A, use α" from it.
 - `{ kind: 'no-pairable-values' }`: nothing to compute on (n = 0). The guardrails block
   this for the full dataset, but leave-one-out α can reach it.
 
-n counts pairable values for α, pairable items for overall percent agreement, and shared
-items for pair percent agreement.
+n counts pairable values for α, pairable items for overall percent agreement, shared
+items for pair percent agreement and Cohen's κ, and complete items for Fleiss' κ. Mean
+pairwise κ is a summary over pairs, and its n depends on the kind (see its row below).
+Fleiss' "computed on X of Y items" takes X from n and Y from `dataset.items.length`;
+the result does not carry Y.
+
+Cohen's and Fleiss' κ check in this order: no pairable values, then too few items, then
+no variation. Mean pairwise κ's order is in its row below.
 
 | Metric | Missing data | Notes |
 | --- | --- | --- |
 | Percent agreement (overall) | Items with ≥2 labels | Mean over items of P_i = share of agreeing rater pairs on item i. No band; UI notes it ignores chance. |
 | Percent agreement (pair) | Items both raters labeled | Raw match rate. |
 | Cohen's κ (pair) | Items both raters labeled | Reports n per pair. n < 10 → "too few shared items", excluded from means. Weights: none, linear `|i−j|/(k−1)`, quadratic `((i−j)/(k−1))²` on category indices (sklearn semantics). |
-| Mean pairwise κ | Pairs with n ≥ 10 | Nominal: unweighted. Ordinal: quadratic-weighted. Raters tab has an unweighted/linear/quadratic toggle. |
-| Fleiss' κ | Only items every rater labeled | Show "computed on X of Y items". Fewer than 10 complete items → "N/A, use α" with tooltip. Always nominal; labelled "(nominal)" when the dataset is ordinal. |
+| Mean pairwise κ | Pairs with n ≥ 10 | Nominal: unweighted. Ordinal: quadratic-weighted. Raters tab has an unweighted/linear/quadratic toggle. Averages the pairs with a value; n = those pairs. Pairs with no variation are left out too. With no pair left: no variation if any pair had enough items but one category (n = those pairs), else too few items (n = the most items any pair shares), else no pairable values. |
+| Fleiss' κ | Only items every rater labeled | Show "computed on X of Y items". Fewer than 10 complete items → "N/A, use α" with tooltip. Always nominal; labelled "(nominal)" when the dataset is ordinal. A rater with no ratings at all is ignored, so they don't make every item incomplete. |
 | Krippendorff's α | Native: items with <2 labels dropped, count noted | Nominal δ = 0/1. Ordinal δ² from the coincidence marginals: `(Σ_{g=c..k} n_g − (n_c+n_k)/2)²`. |
+
+**Weighted κ and unused categories.** Weights use indices in the dataset's full category
+order (`dataset.categories`, which keeps ordinal categories nobody used), so a pair's
+weights don't shift with which categories that pair happened to use. sklearn's
+`cohen_kappa_score` without `labels=` uses only the labels present in the two raters'
+data, so when an unused category sits *between* used ones, Concord's linear and
+quadratic κ differ from sklearn's; unused categories at either end change nothing. The
+`(k−1)` scaling cancels in κ's ratio and is not applied.
 
 ### Interpretation bands (`analysis/bands.ts`)
 

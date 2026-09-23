@@ -1,0 +1,12 @@
+{
+  "source": "Wikipedia, \"Cohen's kappa\", worked example (50 proposals, readers A and B, yes/no). https://en.wikipedia.org/wiki/Cohen%27s_kappa#Simple_example",
+  "categories": ["Yes", "No"],
+  "table": [
+    [20, 5],
+    [10, 15]
+  ],
+  "expected": {
+    "n": 50,
+    "kappa": 0.4
+  }
+}

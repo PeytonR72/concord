@@ -127,4 +127,10 @@ describe('pairPercentAgreement', () => {
   test('refuses a rater index outside the dataset', () => {
     expect(() => pairPercentAgreement(fromRows(['ab', 'ab']), 0, 2)).toThrow(RangeError)
   })
+
+  test('refuses a rating outside the categories', () => {
+    const dataset = fromRows(['abc', 'ab.'], { categories: ['a', 'b'] })
+
+    expect(() => pairPercentAgreement(dataset, 0, 1)).toThrow(RangeError)
+  })
 })
