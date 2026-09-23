@@ -1,0 +1,4 @@
+@import 'tailwindcss';
+
+/* Design tokens arrive in stage 8: planned in docs/design/tokens.md first, then
+   implemented here as an @theme block. */
