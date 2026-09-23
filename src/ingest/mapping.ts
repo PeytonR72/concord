@@ -1,4 +1,4 @@
-export type Level = 'nominal' | 'ordinal'
+import type { Level } from '../dataset/dataset'
 
 // The user-confirmed choice that turns a RawTable into a Dataset. Columns are
 // indices into RawTable.headers, since headers may be blank or repeated.
@@ -21,7 +21,7 @@ type MappingCommon = {
   itemColumn: number
   textColumn?: number
   level: Level
-  // Categories from first to last. Empty means first-seen order, which is
-  // what a nominal dataset uses; an ordinal dataset needs the user's order.
+  // Ordinal only: categories from first to last, covering every label in the
+  // data. A nominal dataset ignores it and uses first-seen order.
   categoryOrder: readonly string[]
 }

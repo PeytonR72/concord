@@ -85,6 +85,7 @@ Feature folders; each holds its pure logic, components and tests together. Propo
 
 ```
 src/
+  dataset/     Dataset, Item, Level: the canonical model every stage after ingest reads
   ingest/      parse-csv, detect-shape, map-dataset, guardrails
   metrics/     coincidence, alpha, cohen, fleiss, percent-agreement, distance
   analysis/    bands, confusion-shares, hotspots, rater-outliers, summary-markdown
@@ -151,6 +152,28 @@ m001,"Great, another outage.",Negative,Sarcastic,
 | More than 50,000 long-form ratings | Warning; still try |
 | Text column has conflicting values for one item | Warning; first value wins |
 | More than 30 raters | Not a warning; the rater heatmap renders as a list |
+| Empty item id (either shape) or empty rater (long) | Blocking; list the first 5 row numbers |
+| Wide: the same item id on two rows | Blocking; list the first 5 with row numbers |
+| Ordinal: a data label missing from the category order (or no order) | Blocking; name the labels |
+| Mapping reuses a column, points past the header, or repeats a category in the order | Blocking |
+
+Guardrails are returned as data (a `kind` plus counts, labels and row numbers), and
+warnings are returned beside blocking errors as well as on success. Raters, labels and
+ratings are counted as they occur in the data: a rater with no ratings doesn't count
+toward "2 raters", and "50,000 ratings" counts non-missing ratings in either shape. A
+blank text cell is absent, not a conflict.
+
+**Mapping rules** (`ingest/map-dataset.ts`):
+
+- Item ids, rater names, labels and text are trimmed. Missing tokens apply to labels only.
+- Items and nominal categories are first-seen in reading order: row by row, and within a
+  wide row across the rater columns in mapping order. Raters are first-seen (long) or in
+  mapping order (wide). A long file listing each item's ratings together, in the wide
+  file's rater order, maps to the identical `Dataset`.
+- Ordinal categories are the user's order, including ordered categories nobody used.
+  Nominal ignores any order given.
+- Wide rater names come from headers; a blank header becomes `Column N` (1-based) and a
+  repeated name gets the next free suffix: `alice`, `alice (2)`.
 
 ### Internal model
 
