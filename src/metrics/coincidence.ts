@@ -3,6 +3,8 @@ import { checkCategory } from './ratings'
 
 // One item's non-missing ratings, tallied by category.
 export type ItemTally = {
+  // The item's index in `dataset.items`.
+  item: number
   byCategory: readonly { category: number; count: number }[]
   // Ratings on the item (m).
   total: number
@@ -25,7 +27,7 @@ export function pairableItems(dataset: Dataset): ItemTally[] {
     }
     if (total >= 2) {
       const byCategory = [...counts].map(([category, count]) => ({ category, count }))
-      tallies.push({ byCategory, total })
+      tallies.push({ item, byCategory, total })
     }
   })
   return tallies

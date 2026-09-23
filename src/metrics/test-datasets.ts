@@ -78,6 +78,11 @@ export function relabel(dataset: Dataset, mapping: readonly number[]): Dataset {
   }
 }
 
+// A value result, for tests that only care about the value.
+export function valued(value: number): MetricResult {
+  return { kind: 'value', value, n: 40 }
+}
+
 // The value of a result that must have one.
 export function value(result: MetricResult): number {
   if (result.kind !== 'value') throw new Error(`expected a value, got ${result.kind}`)

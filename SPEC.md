@@ -241,7 +241,10 @@ quadratic κ differ from sklearn's; unused categories at either end change nothi
 
 - **α** (Krippendorff 2004): ≥ 0.800 reliable; 0.667 to < 0.800 tentative; < 0.667 unreliable.
 - **κ** (Landis & Koch 1977): < 0 poor; 0 to 0.20 slight; 0.21 to 0.40 fair; 0.41 to 0.60
-  moderate; 0.61 to 0.80 substantial; 0.81 to 1 almost perfect.
+  moderate; 0.61 to 0.80 substantial; 0.81 to 1 almost perfect. The written ranges leave
+  gaps, so each κ band's upper edge is inclusive: `[0, 0.20]` slight, `(0.20, 0.40]` fair,
+  `(0.40, 0.60]` moderate, `(0.60, 0.80]` substantial, `(0.80, 1]` almost perfect.
+- A result that is not a value has no band (`null`); the UI shows its kind instead.
 - Each band's tooltip cites its source and says bands are conventions.
 
 ### Analyses
@@ -251,16 +254,58 @@ quadratic κ differ from sklearn's; unused categories at either end change nothi
 - **Confusion shares**: off-diagonal cell (c,k), c<k, share = (o_ck + o_kc) / Σ off-diagonal.
   The heatmap colours only off-diagonal cells, by share; the diagonal stays neutral.
   Tooltip: "Sarcastic ↔ Negative: 38.5 pairings (21% of all disagreement)".
+  Only confusions somebody made are listed, largest first; pairings equal at 1e-9 tie, and
+  ties go to the lower category indices. The first is the pre-selected largest confusion.
+  With no disagreement the list is empty rather than dividing by zero.
 - **Drill-down**: selecting cell {c,k} lists every item where at least one rater said c
-  and another said k, ordered by hotspot rank. The selection is `{ a: category, b: category }`.
+  and another said k, ordered by hotspot rank. The selection is `{ a: category, b: category }`,
+  category indices with a < b. It lives in `analysis/hotspots.ts` beside the ranking;
+  either order of a and b selects the same items, and a = b is a caller bug (`RangeError`).
 - **Hotspots**: items with ≥2 labels ranked by 1 − P_i descending, ties broken by more
-  labels first, then item id. Ordinal: rank by mean pairwise |i−j| over label pairs instead.
+  labels first, then item id by UTF-16 code unit (not `localeCompare`, so the order is the
+  same in every locale). Ordinal: rank by mean |i−j| over the item's unordered pairs of
+  ratings instead.
 - **Rater outliers**: per rater, mean pairwise κ against the others, and leave-one-out α
   (α with that rater removed). Flag when LOO α − α ≥ 0.05; message "α would be 0.71
-  without R3". Fewer than 3 raters: LOO is N/A and nothing is flagged.
+  without R3". Fewer than 3 raters: LOO is N/A and nothing is flagged. A rater with no
+  ratings doesn't count towards the 3. The difference is compared with a 1e-9 tolerance,
+  so a rounding error can't lose an exact 0.05. Only a value against a value is flagged;
+  LOO α is `null` when N/A. Mean κ against the others follows mean pairwise κ's n and
+  fallbacks over the pairs that rater is in.
 - **Summary Markdown**: metrics with bands and n, the top 3 confusions with shares,
   flagged raters, dataset counts, level of measurement, and a one-line "computed in
-  Concord" footer.
+  Concord" footer. The layout, fixed by the snapshots in `summary-markdown.test.ts`:
+
+  ```md
+  ## Concord agreement summary
+
+  - **Krippendorff's α (nominal):** 0.612, unreliable (n = 812 pairable values)
+  - **Fleiss' κ (nominal):** 0.598, moderate (computed on 143 of 200 items)
+  - **Mean pairwise Cohen's κ (unweighted):** 0.604, moderate (10 rater pairs)
+  - **Percent agreement:** 78%, ignores chance (n = 200 items)
+
+  **Dataset:** 200 items, 5 raters, 4 categories, nominal.
+
+  ### Top confusions
+
+  1. Sarcastic ↔ Negative: 38.5 pairings (21% of all disagreement)
+
+  ### Flagged raters
+
+  - R3: α would be 0.710 without R3
+
+  ---
+
+  Computed in Concord (in the browser; the file never left the tab).
+  ```
+
+  α and κ show 3 decimals, pairings 1, percent agreement and shares whole percents. A
+  result that isn't a value reads "no variation (…n…)", "too few items (7 of 10)" or "no
+  pairable values". Mean κ uses the default weighting. Rater and category names have
+  Markdown's formatting characters escaped (backslash, backtick, `*`, `_`, `~`, `|`, `[`,
+  `]`, `<`, `>`). Empty sections still print: "None: the raters never disagree." for
+  confusions, "None." for flagged raters, and "None: leave-one-out α needs at least 3
+  raters." when LOO is N/A.
 
 ## Correctness
 

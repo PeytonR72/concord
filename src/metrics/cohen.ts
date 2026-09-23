@@ -78,21 +78,26 @@ export function pairwiseKappa(dataset: Dataset, weighting: Weighting): KappaPair
   return pairs
 }
 
-// The mean of Cohen's κ over the rater pairs that have a value; n counts those
+// The mean of Cohen's κ over every rater pair (SPEC.md, "Mean pairwise κ").
+export function meanPairwiseKappa(
+  dataset: Dataset,
+  weighting: Weighting = defaultWeighting(dataset.level),
+): MetricResult {
+  return meanKappa(pairwiseKappa(dataset, weighting))
+}
+
+// The mean of Cohen's κ over the given pairs that have a value; n counts those
 // pairs. Pairs with too few shared items or no variation are left out. With
 // no pair left, the result says why, taking the most informative reason: no
 // variation if some pair had enough items but one category (n counting those
 // pairs), else too few items (n the most items any pair shares, so the UI can
 // say how far short the best pair falls), else nothing pairable.
-export function meanPairwiseKappa(
-  dataset: Dataset,
-  weighting: Weighting = defaultWeighting(dataset.level),
-): MetricResult {
+export function meanKappa(pairs: readonly KappaPair[]): MetricResult {
   let sum = 0
   let counted = 0
   let noVariationPairs = 0
   let mostShared = 0
-  for (const { result } of pairwiseKappa(dataset, weighting)) {
+  for (const { result } of pairs) {
     if (result.kind === 'value') {
       sum += result.value
       counted += 1
