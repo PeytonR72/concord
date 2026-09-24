@@ -38,7 +38,7 @@ the deferred list is **undecided**: ask before building it.
 | Mapping screen | Prefilled from detection. Pick shape, item column, rater column(s), label column (long), optional text column, level of measurement, and category order for ordinal. |
 | Levels of measurement | Nominal and ordinal. |
 | Metrics | Percent agreement, Cohen's κ per rater pair (unweighted, linear, quadratic), Fleiss' κ, Krippendorff's α (nominal, ordinal). |
-| Metric strip | α with band, Fleiss' κ, mean pairwise Cohen's κ, percent agreement, counts of items, raters, labels. |
+| Metric strip | α with band, Fleiss' κ, mean pairwise Cohen's κ, percent agreement, counts of items, raters, categories. |
 | Confusion view (hero) | Krippendorff coincidence matrix as a heatmap; click a cell to list the items behind it. Largest off-diagonal cell pre-selected. |
 | Raters tab | Rater × rater κ heatmap (list above 30 raters), mean pairwise κ and leave-one-out α per rater, outlier flag. |
 | Items tab | Hotspot list ranked by disagreement with an inline label distribution bar. |
@@ -533,6 +533,47 @@ cell tooltips. Click-to-select drill-down listing items with text. Largest confu
 pre-selected on load. Demo path skips mapping.
 
 - **Done when**: the definition of done holds end to end on the demo.
+- **Decisions**:
+  - Layout: a header (title, dataset counts, "Start over"), the metric strip, then the
+    confusion matrix (5 of 12 columns, sticky while the list scrolls) beside the
+    drill-down (7 of 12), stacked below 1024px. No tab bar until stage 11.
+  - Each strip tile shows the name, its level or weighting, the value, the band word and
+    one line saying what n counted. α's band takes its status wash, colour and icon; κ's
+    bands and percent agreement's "ignores chance" are plain `ink-muted`. The band is a
+    focusable button whose tooltip cites the source and says bands are conventions.
+  - A result that isn't a value prints "N/A" with a word and a reason: Fleiss' too few
+    items reads "use α instead" ("only 7 of 200 items are complete (needs 10)"); mean κ's
+    reads "too few shared items" ("no rater pair shares 10 items (most: 7)"); no variation
+    reads "no variation" ("every rating is one category"); no pairable values says what's
+    missing. The tooltip explains each. Mean κ's no variation is per pair ("every rater
+    pair sharing enough items used one category"). Percent agreement's n reads "pairable
+    items".
+  - Number formatting (3 decimals for α and κ, whole percents, 1 decimal for pairings,
+    grouped counts) lives in `src/format/number.ts`, shared by the strip, the tooltips,
+    the mapping screen and the summary Markdown.
+  - A confusion is named later category first, `b ↔ a` ("Sarcastic ↔ Negative"): the
+    lower-triangle cell, read row ↔ column. Both of its cells, the drill-down and the
+    summary Markdown use the same order.
+  - Off-diagonal cells print the confusion's disagreement share (under 0.5% prints
+    "<1%"), in both of its cells; the diagonal prints its pairings; an empty cell prints
+    nothing. The colour step is `ceil(8 × share / largest share)`.
+  - Selecting a confusion rings both of its cells, with `aria-pressed`. The ring is 2px
+    `ink` outside the cell with a 2px paper gap rather than inset, because an inset ink
+    line vanishes on `seq-800`, where the largest confusion always sits. Diagonal and empty
+    cells are `aria-disabled` and select nothing. With no disagreement, nothing is selected
+    and the drill-down says there is nothing to drill into. A new selection is announced
+    politely ("Negative ↔ Neutral: 34 items").
+  - The matrix's cells are one tab stop (roving tabindex): the arrow keys move between
+    cells, and Home and End go to the ends of the row. Each cell's tooltip is also its
+    accessible name. Cells are 3.5rem or wider, and the matrix scrolls sideways inside its
+    card, with the row labels pinned.
+  - Tooltips are hand-rolled, with no dependency: one `ui/TooltipLayer` shows the
+    `data-tooltip` text of the hovered or focused element, fixed to the viewport so a
+    scrolling card can't clip it. It follows its anchor through scrolls and resizes, and
+    Escape hides it.
+  - Each drill-down item shows its id, its text ("No text in the file." without one) and
+    one chip per rater who rated it. The confusion's two categories are in the accent
+    wash. The first 50 show, then "Show all N items".
 
 ### Stage 11: Raters and Items tabs
 

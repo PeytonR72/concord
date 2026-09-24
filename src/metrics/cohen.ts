@@ -65,6 +65,11 @@ export function defaultWeighting(level: Level): Weighting {
   return level === 'ordinal' ? 'quadratic' : 'unweighted'
 }
 
+// A weighting as the UI names it: "unweighted", "quadratic-weighted".
+export function weightingName(weighting: Weighting): string {
+  return weighting === 'unweighted' ? 'unweighted' : `${weighting}-weighted`
+}
+
 export type KappaPair = { a: number; b: number; result: MetricResult }
 
 // Cohen's κ for every pair of raters, a < b, in rater order.

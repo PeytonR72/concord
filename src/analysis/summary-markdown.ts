@@ -1,12 +1,18 @@
 import type { Dataset } from '../dataset/dataset'
+import { counted, decimal, formatNumber, pairings as pairingsText, percent } from '../format/number'
 import { alpha } from '../metrics/alpha'
 import { coincidenceMatrix } from '../metrics/coincidence'
-import { defaultWeighting, meanPairwiseKappa, type Weighting } from '../metrics/cohen'
+import {
+  defaultWeighting,
+  meanPairwiseKappa,
+  weightingName,
+  type Weighting,
+} from '../metrics/cohen'
 import { fleissKappa } from '../metrics/fleiss'
 import type { MetricResult } from '../metrics/metric-result'
 import { percentAgreement } from '../metrics/percent-agreement'
 import { alphaBand, kappaBand } from './bands'
-import { confusionShares } from './confusion-shares'
+import { confusionName, confusionShares } from './confusion-shares'
 import { raterOutliers } from './rater-outliers'
 
 // The confusions the summary lists.
@@ -30,7 +36,7 @@ export function summaryMarkdown(dataset: Dataset): string {
     metricLine("Fleiss' κ (nominal)", fleissKappa(dataset), {
       format: decimal,
       verdict: kappaBand,
-      context: (n) => `computed on ${n} of ${counted(items, 'item')}`,
+      context: (n) => `computed on ${formatNumber(n)} of ${counted(items, 'item')}`,
     }),
     metricLine(
       `Mean pairwise Cohen's κ (${weightingName(weighting)})`,
@@ -83,7 +89,7 @@ function describe(result: MetricResult, { format, verdict, context }: Presentati
     case 'no-variation':
       return `no variation (${context(result.n)})`
     case 'too-few-items':
-      return `too few items (${result.n} of ${result.minimum})`
+      return `too few items (${formatNumber(result.n)} of ${result.minimum})`
     case 'no-pairable-values':
       return 'no pairable values'
   }
@@ -92,9 +98,10 @@ function describe(result: MetricResult, { format, verdict, context }: Presentati
 function confusionLines(dataset: Dataset): string[] {
   const shares = confusionShares(coincidenceMatrix(dataset)).slice(0, TOP_CONFUSIONS)
   if (shares.length === 0) return ['None: the raters never disagree.']
+  const categories = dataset.categories.map(escapeMarkdown)
   return shares.map(({ a, b, pairings, share }, index) => {
-    const pair = `${categoryName(dataset, a)} ↔ ${categoryName(dataset, b)}`
-    const count = `${fixed(pairings, 1)} pairings`
+    const pair = confusionName(categories, { a, b })
+    const count = `${pairingsText(pairings)} pairings`
     return `${index + 1}. ${pair}: ${count} (${percent(share)} of all disagreement)`
   })
 }
@@ -112,14 +119,6 @@ function flaggedLines(dataset: Dataset, weighting: Weighting): string[] {
   return flagged.length === 0 ? ['None.'] : flagged
 }
 
-function weightingName(weighting: Weighting): string {
-  return weighting === 'unweighted' ? 'unweighted' : `${weighting}-weighted`
-}
-
-function categoryName(dataset: Dataset, index: number): string {
-  return escapeMarkdown(dataset.categories[index] ?? '')
-}
-
 // Rater and category names are the user's text: characters Markdown would
 // read as formatting (GFM's ~ and | included) are escaped so a name like
 // `snake_case` survives.
@@ -127,20 +126,3 @@ function escapeMarkdown(text: string): string {
   return text.replace(/[\\`*_~|[\]<>]/g, '\\$&')
 }
 
-function counted(n: number, singular: string, plural = `${singular}s`): string {
-  return `${n} ${n === 1 ? singular : plural}`
-}
-
-function decimal(value: number): string {
-  return fixed(value, 3)
-}
-
-function percent(value: number): string {
-  return `${fixed(value * 100, 0)}%`
-}
-
-// toFixed, without the minus sign on a value that rounds to zero.
-function fixed(value: number, digits: number): string {
-  const text = value.toFixed(digits)
-  return Number(text) === 0 ? (0).toFixed(digits) : text
-}

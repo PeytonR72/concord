@@ -7,7 +7,7 @@ import { Landing } from './landing/Landing'
 import { MappingScreen } from './mapping/MappingScreen'
 import { initialScreen, screenReducer } from './screen'
 import { column } from './ui/classes'
-import { WorkbenchPlaceholder } from './workbench/WorkbenchPlaceholder'
+import { Workbench } from './workbench/Workbench'
 
 // The app shell: a top bar over whichever screen the state names.
 export function App() {
@@ -73,7 +73,7 @@ export function App() {
         />
       )}
       {state.screen === 'workbench' && (
-        <WorkbenchPlaceholder dataset={state.dataset} onStartOver={startOver} />
+        <Workbench dataset={state.dataset} onStartOver={startOver} />
       )}
     </div>
   )

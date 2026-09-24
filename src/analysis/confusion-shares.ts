@@ -35,6 +35,13 @@ export function confusionShares(matrix: CoincidenceMatrix): ConfusionShare[] {
     .sort((x, y) => rounded(y.pairings) - rounded(x.pairings))
 }
 
+// A confusion in words, the later category first: "Sarcastic ↔ Negative".
+// That reads the matrix's lower triangle, row ↔ column, which is where the
+// confusion view outlines it.
+export function confusionName(categories: readonly string[], { a, b }: Confusion): string {
+  return `${categories[b] ?? ''} ↔ ${categories[a] ?? ''}`
+}
+
 // The precision pairings are compared at.
 const TIE = 1e-9
 

@@ -24,7 +24,7 @@ describe('summaryMarkdown', () => {
 
       ### Top confusions
 
-      1. Negative ↔ Sarcastic: 8.0 pairings (100% of all disagreement)
+      1. Sarcastic ↔ Negative: 8.0 pairings (100% of all disagreement)
 
       ### Flagged raters
 
@@ -52,7 +52,7 @@ describe('summaryMarkdown', () => {
 
       ### Top confusions
 
-      1. 2 ↔ 3: 2.0 pairings (100% of all disagreement)
+      1. 3 ↔ 2: 2.0 pairings (100% of all disagreement)
 
       ### Flagged raters
 

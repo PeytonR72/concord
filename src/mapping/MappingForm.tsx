@@ -1,9 +1,10 @@
 import { type Dispatch, useId } from 'react'
+import { counted, formatNumber } from '../format/number'
 import type { Mapping, WideMapping } from '../ingest/mapping'
 import { field, fieldLabel, hint, secondaryButton } from '../ui/classes'
 import { CategoryOrder } from './CategoryOrder'
 import type { MappingEdit } from './edit-mapping'
-import { columnLabel, counted, formatNumber } from './messages'
+import { columnLabel } from './messages'
 
 type Props = {
   headers: readonly string[]

@@ -1,7 +1,7 @@
 import { describe, expect, test } from 'vitest'
 import { coincidenceMatrix } from '../metrics/coincidence'
 import { fromRows } from '../metrics/test-datasets'
-import { confusionShares } from './confusion-shares'
+import { confusionName, confusionShares } from './confusion-shares'
 
 function sharesOf(rows: readonly string[]) {
   return confusionShares(coincidenceMatrix(fromRows(rows)))
@@ -55,5 +55,13 @@ describe('confusionShares', () => {
 
   test('the categories are listed with a < b whichever rater said which', () => {
     expect(sharesOf(['ba', 'ab'])).toEqual([{ a: 0, b: 1, pairings: 4, share: 1 }])
+  })
+})
+
+describe('confusionName', () => {
+  test('names the later category first', () => {
+    const categories = ['Positive', 'Neutral', 'Negative', 'Sarcastic']
+    expect(confusionName(categories, { a: 2, b: 3 })).toBe('Sarcastic ↔ Negative')
+    expect(confusionName(categories, { a: 0, b: 1 })).toBe('Neutral ↔ Positive')
   })
 })

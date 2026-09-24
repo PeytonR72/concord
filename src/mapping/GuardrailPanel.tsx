@@ -1,7 +1,8 @@
+import { counted, formatNumber } from '../format/number'
 import type { Blocking, Warning } from '../ingest/guardrails'
 import { hint } from '../ui/classes'
 import { StatusIcon, type StatusTone } from '../ui/StatusIcon'
-import { counted, formatNumber, guardrailMessage, type MessageContext } from './messages'
+import { guardrailMessage, type MessageContext } from './messages'
 
 type Props = {
   blocking: readonly Blocking[]

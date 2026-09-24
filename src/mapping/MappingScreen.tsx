@@ -1,5 +1,6 @@
 import { useMemo, useReducer } from 'react'
 import type { Dataset } from '../dataset/dataset'
+import { counted } from '../format/number'
 import { detectShape } from '../ingest/detect-shape'
 import { mapDataset } from '../ingest/map-dataset'
 import type { Mapping } from '../ingest/mapping'
@@ -14,7 +15,7 @@ import {
 import { editMapping, type MappingEdit } from './edit-mapping'
 import { GuardrailPanel } from './GuardrailPanel'
 import { MappingForm } from './MappingForm'
-import { counted, type MessageContext } from './messages'
+import type { MessageContext } from './messages'
 import { TablePreview } from './TablePreview'
 
 type Props = {

@@ -1,5 +1,6 @@
 import { type Blocking, EXAMPLE_LIMIT, type Warning } from '../ingest/guardrails'
 import type { Shape } from '../ingest/mapping'
+import { counted, formatNumber } from '../format/number'
 
 // A guardrail in words: a sentence that says what is wrong and how to fix it,
 // then any example rows, and how many rows the examples leave out.
@@ -8,13 +9,6 @@ export type GuardrailMessage = { text: string; examples: readonly string[]; more
 // What a message needs beyond the guardrail: headers to name columns, and the
 // shape, since the fix points at different controls for each.
 export type MessageContext = { headers: readonly string[]; shape: Shape }
-
-const numbers = new Intl.NumberFormat('en')
-
-// A count with thousands separators: "1,204".
-export function formatNumber(value: number): string {
-  return numbers.format(value)
-}
 
 // Every Blocking and Warning kind has a message (SPEC.md, "Guardrails").
 export function guardrailMessage(
@@ -109,13 +103,13 @@ export function guardrailMessage(
 
     case 'many-labels':
       return plain(
-        `${numbers.format(guardrail.labels)} distinct labels. Is a text or id column ` +
+        `${formatNumber(guardrail.labels)} distinct labels. Is a text or id column ` +
           (shape === 'long' ? 'mapped as the label?' : 'ticked as a rater?'),
       )
 
     case 'many-ratings':
       return plain(
-        `${numbers.format(guardrail.ratings)} ratings. Concord will still try, but the ` +
+        `${formatNumber(guardrail.ratings)} ratings. Concord will still try, but the ` +
           'workbench may be slow.',
       )
 
@@ -141,11 +135,11 @@ function withExamples(text: string, count: number, examples: readonly string[]):
 
 // "Line 4 has …", "Lines 4 and 9 have …", or "12 rows have …: lines 4, 9 and 10 more."
 function rowLines(count: number, lines: readonly number[], what: string): string {
-  const listed = lines.map((line) => numbers.format(line))
+  const listed = lines.map((line) => formatNumber(line))
   if (count === 1 && listed.length === 1) return `Line ${listed.join('')} has ${what}.`
   if (count <= listed.length) return `Lines ${joined(listed)} have ${what}.`
-  const more = `${numbers.format(count - listed.length)} more`
-  return `${numbers.format(count)} rows have ${what}: lines ${joined([...listed, more])}.`
+  const more = `${formatNumber(count - listed.length)} more`
+  return `${formatNumber(count)} rows have ${what}: lines ${joined([...listed, more])}.`
 }
 
 // "A row repeats", "7 rows repeat".
@@ -169,16 +163,11 @@ function columnName(headers: readonly string[], column: number): string {
 function quotedList(values: readonly string[]): string {
   const shown = values.slice(0, EXAMPLE_LIMIT).map(quote)
   const rest = values.length - shown.length
-  return joined(rest > 0 ? [...shown, `${numbers.format(rest)} more`] : shown)
+  return joined(rest > 0 ? [...shown, `${formatNumber(rest)} more`] : shown)
 }
 
 function quote(value: string): string {
   return `“${value}”`
-}
-
-// "1 column", "1,204 columns".
-export function counted(count: number, noun: string, plural = `${noun}s`): string {
-  return `${numbers.format(count)} ${count === 1 ? noun : plural}`
 }
 
 // "a", "a and b", "a, b and c".

@@ -7,6 +7,10 @@ export const column = 'mx-auto w-full max-w-5xl px-4 sm:px-6'
 // A screen's <main>: the column, filling the height under the top bar.
 export const screenFrame = `${column} flex flex-1 flex-col py-10 sm:py-16`
 
+// A raised card: the workbench's panels.
+export const card =
+  'flex min-w-0 flex-col gap-4 rounded-lg border border-rule bg-paper-raised p-4 shadow-card sm:p-5'
+
 export const eyebrow = 'text-caption font-semibold tracking-eyebrow text-ink-muted uppercase'
 
 // Every control is at least 44px tall so it takes a thumb. A disabled button

@@ -1,9 +1,10 @@
 import { useId } from 'react'
+import { counted } from '../format/number'
 import type { Mapping } from '../ingest/mapping'
 import type { RawTable } from '../ingest/parse-csv'
 import { eyebrow, hint } from '../ui/classes'
 import { columnRoles } from './edit-mapping'
-import { columnLabel, counted } from './messages'
+import { columnLabel } from './messages'
 
 type Props = { table: RawTable; mapping: Mapping; className: string }
 

@@ -1,6 +1,12 @@
 import { describe, expect, test } from 'vitest'
 import type { Dataset } from '../dataset/dataset'
-import { cohenKappa, meanPairwiseKappa, pairwiseKappa, type Weighting } from './cohen'
+import {
+  cohenKappa,
+  meanPairwiseKappa,
+  pairwiseKappa,
+  weightingName,
+  type Weighting,
+} from './cohen'
 import sklearn from './cohen-sklearn.json'
 import wikipedia from './cohen-wikipedia.json'
 import { expectSame, fromRows, relabel, reorderItems, reverseRaters, value } from './test-datasets'
@@ -287,5 +293,13 @@ describe('pairwiseKappa', () => {
       [1, 3, 'too-few-items'],
       [2, 3, 'too-few-items'],
     ])
+  })
+})
+
+describe('weightingName', () => {
+  test('names each weighting as the UI shows it', () => {
+    expect(weightingName('unweighted')).toBe('unweighted')
+    expect(weightingName('linear')).toBe('linear-weighted')
+    expect(weightingName('quadratic')).toBe('quadratic-weighted')
   })
 })
