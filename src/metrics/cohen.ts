@@ -4,6 +4,8 @@ import { sharedRatings } from './ratings'
 
 export type Weighting = 'unweighted' | 'linear' | 'quadratic'
 
+export const WEIGHTINGS: readonly Weighting[] = ['unweighted', 'linear', 'quadratic']
+
 // Cohen's κ between raters a and b over the items both rated: 1 − Σ w·o / Σ w·e,
 // with o the observed contingency table and e its chance expectation from the
 // two raters' marginals. n counts the shared items; fewer than MINIMUM_ITEMS

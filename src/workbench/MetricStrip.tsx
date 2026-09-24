@@ -1,7 +1,8 @@
 import { useId } from 'react'
 import { hint } from '../ui/classes'
 import { StatusIcon } from '../ui/StatusIcon'
-import type { MetricTile, Tone } from './metric-strip'
+import type { Tone } from '../format/result-words'
+import type { MetricTile } from './metric-strip'
 
 type Props = { tiles: readonly MetricTile[] }
 

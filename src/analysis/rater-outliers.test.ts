@@ -2,7 +2,7 @@ import { describe, expect, test } from 'vitest'
 import { alpha } from '../metrics/alpha'
 import { cohenKappa } from '../metrics/cohen'
 import { fromRows, value, valued } from '../metrics/test-datasets'
-import { flagsOutlier, raterOutliers } from './rater-outliers'
+import { flagsOutlier, outlierMessage, raterOutliers } from './rater-outliers'
 
 describe('flagsOutlier: leave-one-out α at least 0.05 above α', () => {
   test.each([
@@ -21,6 +21,12 @@ describe('flagsOutlier: leave-one-out α at least 0.05 above α', () => {
     expect(flagsOutlier(valued(0.2), { kind: 'no-pairable-values' })).toBe(false)
     expect(flagsOutlier({ kind: 'no-variation', n: 20 }, valued(0.9))).toBe(false)
     expect(flagsOutlier(valued(0.2), null)).toBe(false)
+  })
+})
+
+describe('outlierMessage', () => {
+  test('says what α would be without the rater, to 3 decimals', () => {
+    expect(outlierMessage('R3', 0.71)).toBe('α would be 0.710 without R3')
   })
 })
 

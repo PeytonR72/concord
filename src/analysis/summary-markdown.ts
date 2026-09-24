@@ -13,7 +13,7 @@ import type { MetricResult } from '../metrics/metric-result'
 import { percentAgreement } from '../metrics/percent-agreement'
 import { alphaBand, kappaBand } from './bands'
 import { confusionName, confusionShares } from './confusion-shares'
-import { raterOutliers } from './rater-outliers'
+import { outlierMessage, raterOutliers } from './rater-outliers'
 
 // The confusions the summary lists.
 const TOP_CONFUSIONS = 3
@@ -114,7 +114,7 @@ function flaggedLines(dataset: Dataset, weighting: Weighting): string[] {
   const flagged = outliers.flatMap(({ rater, leaveOneOutAlpha, flagged }) => {
     if (!flagged || leaveOneOutAlpha?.kind !== 'value') return []
     const name = escapeMarkdown(dataset.raters[rater] ?? '')
-    return [`- ${name}: α would be ${decimal(leaveOneOutAlpha.value)} without ${name}`]
+    return [`- ${name}: ${outlierMessage(name, leaveOneOutAlpha.value)}`]
   })
   return flagged.length === 0 ? ['None.'] : flagged
 }

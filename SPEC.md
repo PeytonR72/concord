@@ -582,6 +582,45 @@ and flag. Hotspot list with inline distribution bars.
 
 - **Done when**: the demo's outlier rater is visibly flagged with its "α would be …"
   message; the hotspot list's top rows are Sarcastic/Negative splits.
+- **Decisions**:
+  - Tabs: Confusion (the default), Raters and Items, as underlined text tabs under the
+    metric strip, which stays above them. The selected tab, the confusion selection and
+    the weighting are local state, kept across tab switches; the URL doesn't carry them
+    (share links are deferred). The bar follows the WAI-ARIA tabs pattern: one tab stop,
+    arrows wrap, Home and End.
+  - Raters layout: a "κ weighting" toggle, then the rater table (7 of 12 columns) beside
+    κ by rater pair (5 of 12), stacked below 1024px.
+  - The toggle reads unweighted / linear / quadratic and drives the pair κ and each
+    rater's mean κ; leave-one-out α and the flag don't depend on it, and the strip stays
+    on the default weighting. Weights need ordered categories, so on nominal data the
+    other two choices are switched off (`aria-disabled`) with the reason beside them.
+  - The rater table's columns: rater, mean κ with its band (the weighting in the
+    header), α without them, and the change in α, signed ("+0.090"). Flagged raters
+    come first, washed in `warn-wash` with the warn icon and the "α would be 0.686
+    without dana" message under their name; the rest keep rater order. A result without
+    a value prints "N/A", a word and the reason, reusing the metric strip's wording
+    scoped to that rater's pairs ("no pair with R3 shares 10 items (most: 7)"). The line
+    over the table names the flagged rater, or says why nobody is flagged: nobody moves
+    α by 0.05, leave-one-out α needs 3 raters, or α has no value.
+  - The 30-rater limit counts every rater in the dataset, since the heatmap draws a row
+    for each, including one with no ratings.
+  - A κ's cell is washed as negative only when it prints as negative, so −0.0004
+    (printed "0.000") takes `seq-100`.
+  - Up to 30 raters, κ by pair is a heatmap on the shared heatmap shell: 3 decimals in
+    every cell, the diagonal neutral and blank, "N/A" on an uncoloured cell for a pair
+    without a value, and a "below 0" legend entry only when a κ is negative. Above 30
+    it is a table of pairs (raters, κ with its band, shared items), weakest first with
+    pairs without κ always last, sortable by any column; 50 rows, then "Show all N
+    pairs".
+  - Hotspots: every pairable item, ranked, each row showing rank and id, its text, the
+    distribution bar and its disagreement. Nominal disagreement prints as a whole
+    percent ("67% of rating pairs disagree"); ordinal as the mean distance with 2
+    decimals ("ratings 1.33 categories apart on average"). One legend names every
+    category over the list. Segments are as wide as their counts, in category order;
+    each has a tooltip ("Sarcastic: 2 of 5 ratings") and the bar's accessible name
+    lists them all. 50 rows, then "Show all N items", shared with the drill-down.
+  - Above 8 categories, categories 8 and up fold into one `cat-other` segment, named
+    "Other" in the legend and listing its categories in its tooltip.
 
 ### Stage 12: Summary, states, finish
 

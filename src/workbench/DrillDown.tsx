@@ -1,6 +1,7 @@
-import { useId, useState } from 'react'
-import { counted, formatNumber } from '../format/number'
-import { card, hint, secondaryButton } from '../ui/classes'
+import { useId } from 'react'
+import { counted } from '../format/number'
+import { card, hint } from '../ui/classes'
+import { useShowAll } from '../ui/useShowAll'
 import type { ConfusionWords, DrillDownRow } from './drill-down'
 
 type Props = {
@@ -10,15 +11,12 @@ type Props = {
   className: string
 }
 
-// How many items show before "Show all".
-const FIRST_ROWS = 50
-
 // The items behind the selected confusion, most disputed first, each with its
 // text and what every rater said. The workbench keys it by the selection, so
 // "Show all" resets when it changes, and announces the change itself.
 export function DrillDown({ confusion, rows, className }: Props) {
   const headingId = useId()
-  const [showAll, setShowAll] = useState(false)
+  const { shown, button } = useShowAll(rows, 'items')
 
   if (confusion === null) {
     return (
@@ -34,7 +32,6 @@ export function DrillDown({ confusion, rows, className }: Props) {
     )
   }
 
-  const shown = showAll ? rows : rows.slice(0, FIRST_ROWS)
   return (
     <section aria-labelledby={headingId} className={`${card} ${className}`}>
       <div className="flex flex-col gap-1">
@@ -51,13 +48,7 @@ export function DrillDown({ confusion, rows, className }: Props) {
           <Row key={row.item} row={row} />
         ))}
       </ol>
-      {shown.length < rows.length && (
-        <div>
-          <button type="button" className={secondaryButton} onClick={() => setShowAll(true)}>
-            Show all {formatNumber(rows.length)} items
-          </button>
-        </div>
-      )}
+      {button}
     </section>
   )
 }

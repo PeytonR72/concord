@@ -1,8 +1,11 @@
-import { useMemo, useState } from 'react'
+import { useId, useMemo, useState } from 'react'
 import { type Confusion, confusionShares } from '../analysis/confusion-shares'
 import { hotspots } from '../analysis/hotspots'
 import type { Dataset } from '../dataset/dataset'
+import { ItemsTab } from '../items/ItemsTab'
+import { defaultWeighting, type Weighting } from '../metrics/cohen'
 import { coincidenceMatrix } from '../metrics/coincidence'
+import { RatersTab } from '../raters/RatersTab'
 import { eyebrow, screenFrame, secondaryButton } from '../ui/classes'
 import { TooltipLayer } from '../ui/TooltipLayer'
 import { ConfusionMatrix } from './ConfusionMatrix'
@@ -11,11 +14,14 @@ import { confusionWords, drillDownRows, selectionAnnouncement } from './drill-do
 import { heatmapCells, initialSelection } from './heatmap'
 import { datasetCounts, metricTiles } from './metric-strip'
 import { MetricStrip } from './MetricStrip'
+import { TabBar } from './TabBar'
+import type { Tab } from './tabs'
 
 type Props = { dataset: Dataset; onStartOver: () => void }
 
-// The workbench: the headline metrics over the confusion view, which opens on
-// the largest confusion with its disputed items listed beside it.
+// The workbench: the headline metrics over three views. Confusion, which it
+// opens on, has the largest confusion selected with its disputed items listed
+// beside it; Raters has the rater table and κ by pair; Items has the hotspots.
 export function Workbench({ dataset, onStartOver }: Props) {
   const { categories } = dataset
   const tiles = useMemo(() => metricTiles(dataset), [dataset])
@@ -38,6 +44,13 @@ export function Workbench({ dataset, onStartOver }: Props) {
   // live region that arrives with its text isn't read out.
   const [announcement, setAnnouncement] = useState('')
 
+  // Local state, like the selection: switching tabs keeps both, and share
+  // links are deferred, so the URL doesn't carry them.
+  const [tab, setTab] = useState<Tab>('confusion')
+  const [weighting, setWeighting] = useState<Weighting>(() => defaultWeighting(dataset.level))
+  const tabIds = useId()
+  const panelId = `${tabIds}-panel`
+
   function select(confusion: Confusion) {
     setSelection(confusion)
     const selected = drillDownRows(dataset, ranking, confusion).length
@@ -59,20 +72,31 @@ export function Workbench({ dataset, onStartOver }: Props) {
 
       <MetricStrip tiles={tiles} />
 
-      <div className="grid items-start gap-6 lg:grid-cols-12">
-        <ConfusionMatrix
-          cells={cells}
-          categories={categories}
-          selection={selection}
-          onSelect={select}
-          className="lg:sticky lg:top-6 lg:col-span-5"
-        />
-        <DrillDown
-          key={selection === null ? 'none' : `${selection.a},${selection.b}`}
-          confusion={words}
-          rows={rows}
-          className="lg:col-span-7"
-        />
+      <div className="flex flex-col gap-6">
+        <TabBar tab={tab} onTab={setTab} idBase={tabIds} panelId={panelId} />
+        <div id={panelId} role="tabpanel" aria-labelledby={`${tabIds}-${tab}`}>
+          {tab === 'confusion' && (
+            <div className="grid items-start gap-6 lg:grid-cols-12">
+              <ConfusionMatrix
+                cells={cells}
+                categories={categories}
+                selection={selection}
+                onSelect={select}
+                className="lg:sticky lg:top-6 lg:col-span-5"
+              />
+              <DrillDown
+                key={selection === null ? 'none' : `${selection.a},${selection.b}`}
+                confusion={words}
+                rows={rows}
+                className="lg:col-span-7"
+              />
+            </div>
+          )}
+          {tab === 'raters' && (
+            <RatersTab dataset={dataset} weighting={weighting} onWeighting={setWeighting} />
+          )}
+          {tab === 'items' && <ItemsTab dataset={dataset} ranking={ranking} />}
+        </div>
       </div>
 
       <p aria-live="polite" className="sr-only">

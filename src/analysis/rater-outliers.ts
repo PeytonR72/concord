@@ -1,4 +1,5 @@
 import type { Dataset } from '../dataset/dataset'
+import { decimal } from '../format/number'
 import { alpha } from '../metrics/alpha'
 import { defaultWeighting, meanKappa, pairwiseKappa, type Weighting } from '../metrics/cohen'
 import type { MetricResult } from '../metrics/metric-result'
@@ -48,6 +49,12 @@ export function raterOutliers(
 export function flagsOutlier(full: MetricResult, leaveOneOut: MetricResult | null): boolean {
   if (full.kind !== 'value' || leaveOneOut?.kind !== 'value') return false
   return leaveOneOut.value - full.value >= OUTLIER_THRESHOLD - EPSILON
+}
+
+// A flagged rater's message (SPEC.md, "Rater outliers"): "α would be 0.710
+// without R3", shared by the Raters tab and the summary Markdown.
+export function outlierMessage(rater: string, leaveOneOutAlpha: number): string {
+  return `α would be ${decimal(leaveOneOutAlpha)} without ${rater}`
 }
 
 function without(dataset: Dataset, rater: number): Dataset {

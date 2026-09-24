@@ -1,5 +1,5 @@
 import { describe, expect, test } from 'vitest'
-import { counted, decimal, formatNumber, pairings, percent } from './number'
+import { counted, decimal, formatNumber, meanDistance, pairings, percent } from './number'
 
 describe('formatNumber', () => {
   test('groups thousands', () => {
@@ -40,5 +40,10 @@ describe('the metric formats', () => {
   test('pairings gives 1 decimal', () => {
     expect(pairings(38.4999)).toBe('38.5')
     expect(pairings(12)).toBe('12.0')
+  })
+
+  test('meanDistance gives 2 decimals', () => {
+    expect(meanDistance(4 / 3)).toBe('1.33')
+    expect(meanDistance(1)).toBe('1.00')
   })
 })

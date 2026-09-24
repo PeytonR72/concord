@@ -1,11 +1,7 @@
 import { type Confusion, confusionName, type ConfusionShare } from '../analysis/confusion-shares'
 import { pairings, percent } from '../format/number'
 import type { CoincidenceMatrix } from '../metrics/coincidence'
-
-// A step of the sequential ramp, seq-100 to seq-800 (docs/design/tokens.md).
-export type Step = 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800
-
-const STEPS: readonly Step[] = [100, 200, 300, 400, 500, 600, 700, 800]
+import { rampStep, type Step } from '../ui/heatmap-grid'
 
 // One cell of the confusion view, row category c against column category k.
 export type HeatmapCell = {
@@ -66,8 +62,7 @@ export function heatmapCells(
 // largest share in the matrix, so the top confusion is always seq-800 and the
 // smallest still gets seq-100.
 export function shareStep(share: number, largest: number): Step {
-  const index = Math.min(STEPS.length, Math.max(1, Math.ceil((share / largest) * STEPS.length)))
-  return STEPS[index - 1] ?? 100
+  return rampStep(share / largest)
 }
 
 // Whole percents, but a share that rounds to 0% still reads as some.
@@ -95,28 +90,3 @@ export function isSelected(selection: Confusion | null, row: number, column: num
   return Math.min(row, column) === selection.a && Math.max(row, column) === selection.b
 }
 
-export type CellPosition = { row: number; column: number }
-
-// Where a key moves focus in a size × size grid: arrows one cell, stopping at
-// the edges; Home and End to the row's ends. Null for a key the grid doesn't
-// handle.
-export function moveFocus(at: CellPosition, key: string, size: number): CellPosition | null {
-  const last = size - 1
-  const clamp = (value: number) => Math.min(last, Math.max(0, value))
-  switch (key) {
-    case 'ArrowUp':
-      return { ...at, row: clamp(at.row - 1) }
-    case 'ArrowDown':
-      return { ...at, row: clamp(at.row + 1) }
-    case 'ArrowLeft':
-      return { ...at, column: clamp(at.column - 1) }
-    case 'ArrowRight':
-      return { ...at, column: clamp(at.column + 1) }
-    case 'Home':
-      return { ...at, column: 0 }
-    case 'End':
-      return { ...at, column: last }
-    default:
-      return null
-  }
-}
