@@ -33,14 +33,22 @@ export function demoDataset(csvText: string): Result<Dataset, string> {
 
 // Fetches the demo CSV from the site and maps it.
 export async function loadDemo(): Promise<Result<Dataset, string>> {
+  const unreachable = 'The demo data could not be loaded. Check your connection.'
   let response: Response
   try {
     response = await fetch(DEMO_URL)
   } catch {
-    return { ok: false, error: 'The demo data could not be loaded. Check your connection.' }
+    return { ok: false, error: unreachable }
   }
   if (!response.ok) {
     return { ok: false, error: `The demo data could not be loaded (HTTP ${response.status}).` }
   }
-  return demoDataset(await response.text())
+  // The body can still break off after the headers arrive.
+  let text: string
+  try {
+    text = await response.text()
+  } catch {
+    return { ok: false, error: unreachable }
+  }
+  return demoDataset(text)
 }

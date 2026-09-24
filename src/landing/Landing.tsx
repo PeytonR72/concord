@@ -1,5 +1,5 @@
 import type { LandingStatus } from '../screen'
-import { busyButton, eyebrow, primaryButton, screenFrame } from '../ui/classes'
+import { busyButton, criticalBox, eyebrow, primaryButton, screenFrame } from '../ui/classes'
 import { StatusIcon } from '../ui/StatusIcon'
 import { DropZone } from './DropZone'
 import { SchematicFigure } from './SchematicFigure'
@@ -62,10 +62,7 @@ function LandingStatusMessage({ status }: { status: LandingStatus }) {
       {status.kind === 'refused' && (
         <div
           role="alert"
-          className={
-            'flex gap-3 rounded-lg border border-critical-rule bg-critical-wash px-4 py-3 ' +
-            'text-small text-critical'
-          }
+          className={criticalBox}
         >
           <StatusIcon tone="critical" />
           <p>{status.message}</p>

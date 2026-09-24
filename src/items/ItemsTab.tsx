@@ -4,7 +4,7 @@ import type { Dataset } from '../dataset/dataset'
 import { card, hint } from '../ui/classes'
 import { useShowAll } from '../ui/useShowAll'
 import { distributionLegend, type Segment, type Slot } from './distribution'
-import { type HotspotRow, hotspotRows } from './hotspot-list'
+import { agreementNote, type HotspotRow, hotspotRows } from './hotspot-list'
 
 type Props = { dataset: Dataset; ranking: readonly Hotspot[] }
 
@@ -29,6 +29,7 @@ export function ItemsTab({ dataset, ranking }: Props) {
   const rows = useMemo(() => hotspotRows(dataset, ranking), [dataset, ranking])
   const { shown, button } = useShowAll(rows, 'items')
   const ordinal = dataset.level === 'ordinal'
+  const note = agreementNote(dataset, ranking)
 
   return (
     <section aria-labelledby={headingId} className={card}>
@@ -43,6 +44,10 @@ export function ItemsTab({ dataset, ranking }: Props) {
             : 'the share of its pairs of ratings that disagree.'}
         </p>
       </div>
+
+      {note !== null && (
+        <p className="rounded-lg bg-paper-sunk px-4 py-3 text-small text-ink">{note}</p>
+      )}
 
       <ul
         aria-label="Categories"

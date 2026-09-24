@@ -1,5 +1,5 @@
 import type { Hotspot } from '../analysis/hotspots'
-import type { Dataset } from '../dataset/dataset'
+import type { Dataset, Level } from '../dataset/dataset'
 import { meanDistance, percent } from '../format/number'
 import { distributionSegments, type Segment } from './distribution'
 
@@ -26,7 +26,7 @@ export function hotspotRows(dataset: Dataset, ranking: readonly Hotspot[]): Hots
   const ordinal = dataset.level === 'ordinal'
   return ranking.map(({ item, byCategory, disagreement }, index) => {
     const segments = distributionSegments(byCategory, dataset.categories)
-    const printed = ordinal ? meanDistance(disagreement) : percent(disagreement)
+    const printed = printDisagreement(dataset.level, disagreement)
     return {
       item,
       rank: index + 1,
@@ -40,4 +40,19 @@ export function hotspotRows(dataset: Dataset, ranking: readonly Hotspot[]): Hots
       barLabel: segments.map(({ label }) => label).join('; '),
     }
   })
+}
+
+// The line over the list when nobody disagrees, so a column of zeros isn't
+// left unexplained; null when anyone does.
+export function agreementNote(dataset: Dataset, ranking: readonly Hotspot[]): string | null {
+  if (!ranking.every(({ disagreement }) => disagreement === 0)) return null
+  return (
+    'The raters never disagree: every item’s ratings are one category, so every item ties ' +
+    `at ${printDisagreement(dataset.level, 0)}.`
+  )
+}
+
+// An item's disagreement as the list prints it.
+function printDisagreement(level: Level, disagreement: number): string {
+  return level === 'ordinal' ? meanDistance(disagreement) : percent(disagreement)
 }

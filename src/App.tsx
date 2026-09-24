@@ -7,6 +7,7 @@ import { Landing } from './landing/Landing'
 import { MappingScreen } from './mapping/MappingScreen'
 import { initialScreen, screenReducer } from './screen'
 import { column } from './ui/classes'
+import { ErrorBoundary } from './ui/ErrorBoundary'
 import { Workbench } from './workbench/Workbench'
 
 // The app shell: a top bar over whichever screen the state names.
@@ -60,21 +61,23 @@ export function App() {
         </div>
       </header>
 
-      {state.screen === 'landing' && (
-        <Landing status={state.status} onTryDemo={tryDemo} onFiles={readFiles} />
-      )}
-      {state.screen === 'mapping' && (
-        <MappingScreen
-          key={state.fileName}
-          fileName={state.fileName}
-          table={state.table}
-          onAnalyse={analyse}
-          onStartOver={startOver}
-        />
-      )}
-      {state.screen === 'workbench' && (
-        <Workbench dataset={state.dataset} onStartOver={startOver} />
-      )}
+      <ErrorBoundary onStartOver={startOver}>
+        {state.screen === 'landing' && (
+          <Landing status={state.status} onTryDemo={tryDemo} onFiles={readFiles} />
+        )}
+        {state.screen === 'mapping' && (
+          <MappingScreen
+            key={state.fileName}
+            fileName={state.fileName}
+            table={state.table}
+            onAnalyse={analyse}
+            onStartOver={startOver}
+          />
+        )}
+        {state.screen === 'workbench' && (
+          <Workbench dataset={state.dataset} onStartOver={startOver} />
+        )}
+      </ErrorBoundary>
     </div>
   )
 }

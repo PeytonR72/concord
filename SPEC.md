@@ -630,3 +630,27 @@ the deferred list). Vercel deploy.
 
 - **Done when**: the deployed URL meets the definition of done in a fresh browser
   profile, and the README's deferred list matches this spec.
+- **Decisions**:
+  - Copy summary is the primary button in the workbench header, before "Start over". On a
+    successful copy its label reads "Copied" for 2 s, and a polite live region says
+    "Summary copied as Markdown." Both labels share one grid cell, so the button keeps its
+    width. The outcome comes from the pure `workbench/copy-summary.ts`: a missing
+    clipboard (an insecure context), a refused write and a write that throws all fail the
+    same way. Then a card under the header shows the Markdown in a read-only textarea,
+    focused with its text selected, with a Close button.
+  - States audit: the landing page already had loading ("Loading the demo…", "Reading
+    <file>…") and refusals, and the guardrails keep an empty dataset out of the workbench.
+    Added: the Items tab says "The raters never disagree" over the list when every item
+    reads 0 (`agreementNote` in `items/hotspot-list.ts`); a demo body or file that
+    breaks off mid-read is refused rather than leaving the landing page loading forever;
+    and `ui/ErrorBoundary.tsx` catches a render error nothing expected, saying the file
+    stayed in the tab, with "Start over".
+  - Phone pass, checked at 375px on every screen and tab: the page never scrolls
+    sideways (matrices and tables scroll inside their cards), and every control is at
+    least 44px tall.
+  - README: portfolio tone, with one screenshot (`docs/screenshot.png`, the demo's
+    workbench at 1280px). It covers what Concord does, the demo, the metrics with their
+    sources, the privacy claim, running it locally, how the math is checked, and the
+    deferred list. `src/readme.test.ts` holds that list equal to this spec's.
+  - Deploy: the Vercel project `concord` is connected to the GitHub repo, so pushing
+    `main` deploys production to concord-plum.vercel.app.

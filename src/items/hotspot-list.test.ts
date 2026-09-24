@@ -3,7 +3,7 @@ import { hotspots } from '../analysis/hotspots'
 import { demo } from '../demo/test-demo'
 import { fromRows } from '../metrics/test-datasets'
 import type { Dataset } from '../dataset/dataset'
-import { hotspotRows } from './hotspot-list'
+import { agreementNote, hotspotRows } from './hotspot-list'
 
 function rows(dataset: Dataset) {
   return hotspotRows(dataset, hotspots(dataset))
@@ -59,5 +59,26 @@ describe('hotspotRows: the demo', () => {
       expect(slots(row)).toContain(3)
       expect(slots(row)).toContain(4)
     }
+  })
+})
+
+describe('agreementNote', () => {
+  test('says so when every pairable item’s ratings are one category', () => {
+    const agreed = fromRows(['aab', 'aab', 'aab'], { categories: ['A', 'B'] })
+    expect(agreementNote(agreed, hotspots(agreed))).toBe(
+      'The raters never disagree: every item’s ratings are one category, so every item ties ' +
+        'at 0%.',
+    )
+  })
+
+  test('prints the tie as a distance on ordinal data', () => {
+    const agreed = fromRows(['aab', 'aab'], { level: 'ordinal' })
+    expect(agreementNote(agreed, hotspots(agreed))).toMatch(/ties at 0\.00\.$/)
+  })
+
+  test('is null when any item has a disagreement', () => {
+    const split = fromRows(['aab', 'aab', 'abb'], { categories: ['A', 'B'] })
+    expect(agreementNote(split, hotspots(split))).toBeNull()
+    expect(agreementNote(demo(), hotspots(demo()))).toBeNull()
   })
 })

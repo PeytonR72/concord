@@ -46,3 +46,8 @@ export const fieldLabel = 'text-small font-semibold text-ink'
 
 // A control's secondary line: a description or a count.
 export const hint = 'text-caption text-ink-muted'
+
+// A refusal or error box, beside a critical StatusIcon, with role="alert".
+export const criticalBox =
+  'flex gap-3 rounded-lg border border-critical-rule bg-critical-wash px-4 py-3 text-small ' +
+  'text-critical'

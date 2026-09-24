@@ -1,4 +1,5 @@
-import { describe, expect, it } from 'vitest'
+import { fromPartial } from '@total-typescript/shoehorn'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { confusionShares } from '../analysis/confusion-shares'
 import { raterOutliers } from '../analysis/rater-outliers'
 import type { Dataset } from '../dataset/dataset'
@@ -8,7 +9,7 @@ import { parseCsv } from '../ingest/parse-csv'
 import { alpha } from '../metrics/alpha'
 import { coincidenceMatrix } from '../metrics/coincidence'
 import { value } from '../metrics/test-datasets'
-import { DEMO_MAPPING, demoDataset } from './demo-dataset'
+import { DEMO_MAPPING, demoDataset, loadDemo } from './demo-dataset'
 import { demo, demoCsv as csv } from './test-demo'
 
 function category(dataset: Dataset, name: string): number {
@@ -82,5 +83,44 @@ describe('the demo story', () => {
     const result = value(alpha(dataset))
     expect(result).toBeGreaterThanOrEqual(0.55)
     expect(result).toBeLessThanOrEqual(0.65)
+  })
+})
+
+describe('loadDemo', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals()
+  })
+
+  function respond(response: Partial<Response>) {
+    vi.stubGlobal('fetch', () => Promise.resolve(fromPartial<Response>(response)))
+  }
+
+  it('maps the fetched CSV', async () => {
+    respond({ ok: true, text: () => Promise.resolve(csv) })
+    expect(await loadDemo()).toEqual({ ok: true, value: demo() })
+  })
+
+  it('refuses when the request fails', async () => {
+    vi.stubGlobal('fetch', () => Promise.reject(new TypeError('Failed to fetch')))
+    expect(await loadDemo()).toEqual({
+      ok: false,
+      error: 'The demo data could not be loaded. Check your connection.',
+    })
+  })
+
+  it('refuses an HTTP error', async () => {
+    respond({ ok: false, status: 404 })
+    expect(await loadDemo()).toEqual({
+      ok: false,
+      error: 'The demo data could not be loaded (HTTP 404).',
+    })
+  })
+
+  it('refuses when the body breaks off, rather than hanging', async () => {
+    respond({ ok: true, text: () => Promise.reject(new TypeError('network error')) })
+    expect(await loadDemo()).toEqual({
+      ok: false,
+      error: 'The demo data could not be loaded. Check your connection.',
+    })
   })
 })

@@ -51,7 +51,17 @@ export function parseCsv(text: string): Result<RawTable, string> {
 }
 
 export async function readCsvFile(file: File): Promise<Result<RawTable, string>> {
-  return parseCsv(await file.text())
+  let text: string
+  try {
+    text = await file.text()
+  } catch {
+    // The landing page prefixes the file's name: "<file> couldn't be read."
+    return {
+      ok: false,
+      error: 'The browser couldn’t open it. It may have moved or changed since you chose it.',
+    }
+  }
+  return parseCsv(text)
 }
 
 // Every record with the line it starts on. Papa Parse's cursor sits just past

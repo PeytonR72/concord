@@ -1,3 +1,4 @@
+import { fromPartial } from '@total-typescript/shoehorn'
 import { describe, expect, test } from 'vitest'
 import { parseCsv, readCsvFile } from './parse-csv'
 
@@ -119,6 +120,19 @@ describe('readCsvFile', () => {
     expect(await readCsvFile(file)).toEqual({
       ok: true,
       value: { headers: ['item', 'label'], rows: [['m001', 'Negative']], lineNumbers: [2] },
+    })
+  })
+
+  test('refuses a file the browser can no longer read, rather than hanging', async () => {
+    const file = fromPartial<File>({
+      name: 'labels.csv',
+      text: () =>
+        Promise.reject(new DOMException('The file could not be read.', 'NotReadableError')),
+    })
+
+    expect(await readCsvFile(file)).toEqual({
+      ok: false,
+      error: 'The browser couldn’t open it. It may have moved or changed since you chose it.',
     })
   })
 })

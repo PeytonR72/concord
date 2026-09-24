@@ -9,6 +9,7 @@ import { RatersTab } from '../raters/RatersTab'
 import { eyebrow, screenFrame, secondaryButton } from '../ui/classes'
 import { TooltipLayer } from '../ui/TooltipLayer'
 import { ConfusionMatrix } from './ConfusionMatrix'
+import { useCopySummary } from './CopySummary'
 import { DrillDown } from './DrillDown'
 import { confusionWords, drillDownRows, selectionAnnouncement } from './drill-down'
 import { heatmapCells, initialSelection } from './heatmap'
@@ -49,6 +50,7 @@ export function Workbench({ dataset, onStartOver }: Props) {
   const [tab, setTab] = useState<Tab>('confusion')
   const [weighting, setWeighting] = useState<Weighting>(() => defaultWeighting(dataset.level))
   const tabIds = useId()
+  const copySummary = useCopySummary(dataset)
   const panelId = `${tabIds}-panel`
 
   function select(confusion: Confusion) {
@@ -65,10 +67,14 @@ export function Workbench({ dataset, onStartOver }: Props) {
           <h1 className="font-display text-title font-medium">How far the raters agree</h1>
           <p className="text-small text-ink-muted">{datasetCounts(dataset)}</p>
         </div>
-        <button type="button" className={secondaryButton} onClick={onStartOver}>
-          Start over
-        </button>
+        <div className="flex flex-wrap gap-3">
+          {copySummary.button}
+          <button type="button" className={secondaryButton} onClick={onStartOver}>
+            Start over
+          </button>
+        </div>
       </div>
+      {copySummary.fallback}
 
       <MetricStrip tiles={tiles} />
 
